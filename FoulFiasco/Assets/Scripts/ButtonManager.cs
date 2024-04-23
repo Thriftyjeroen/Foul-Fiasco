@@ -26,6 +26,7 @@ public class ButtonManager : MonoBehaviour
         Credits,
         Game,
         Scores,
-        Settings
+        Settings,
+        CutScene
     }
 }
