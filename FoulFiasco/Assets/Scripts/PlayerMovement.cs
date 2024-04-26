@@ -1,13 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Rigidbody2D rb;
-    float input;
-    [SerializeField] float speed = 8;
+    [SerializeField] Rigidbody2D rb;
+    FollowPlayer followPlayer;
+    [SerializeField] Rigidbody2D rbBall;
     [SerializeField] float jump = 12;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundLayer;
@@ -15,13 +15,14 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        followPlayer = FindAnyObjectByType<FollowPlayer>();
     }
 
     // Update is called once per frame
     void Update()
     {
         MovementManager();
+        SlideManager();
     }
 
     bool IsGrounded() // maakt een method die een bool returned
@@ -31,12 +32,40 @@ public class PlayerMovement : MonoBehaviour
 
     void MovementManager()
     {
-        input = Input.GetAxis("Horizontal"); // in unity kan je settings veranderden voor bijvoorbeeld movement horizontal gebruik je voor links en rechts bewegen
-        rb.velocity = new Vector2(input * speed, rb.velocity.y); // veranderd de velocity zodat je kan bewegen
-
-        if ((Input.GetKeyDown(KeyCode.Space) && IsGrounded() || Input.GetKeyDown(KeyCode.W)) && IsGrounded()) // als je spatie klikt en isgrounded true is of je op w klikt en isgrounded true is doe de code
+        if ((Input.GetKeyDown(KeyCode.W)) && IsGrounded()) // als je spatie klikt en isgrounded true is of je op w klikt en isgrounded true is doe de code
         {
             rb.AddForce(Vector2.up * jump, ForceMode2D.Impulse); // zorgt ervoor dat je force toevoegd aan de y axis zodat je speler omhoog kan gaan dus kan gaan jumpen
+            StartCoroutine(followPlayer.JumpMovement());
+        }
+    }
+
+    void SlideManager()
+    {
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.localScale = new Vector3(1, 0.5f, 1);
+            StartCoroutine(followPlayer.SlideMovementDown());
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+            StartCoroutine(followPlayer.SlideMovementUp());
+        }
+    }
+
+    void KickManager()
+    {
+        rbBall.velocity = new Vector2(20, 18);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Ball")
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                KickManager();
+            }
         }
     }
 }

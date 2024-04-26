@@ -4,39 +4,29 @@ using System.Collections.Generic;
 
 public class FollowPlayer : MonoBehaviour
 {
-    [SerializeField] GameObject player;
-    [SerializeField] float delay;
-    List<Vector3> playerPosList;
-
+    Rigidbody2D rb;
+    public float delay = 0.8f;
 
     void Awake()
     {
-        playerPosList = new List<Vector3>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate()
+    public IEnumerator JumpMovement()
     {
-        Vector3 playerPos = player.transform.position;
+        yield return new WaitForSeconds(delay);
+        rb.AddForce(Vector2.up * 12, ForceMode2D.Impulse);
+    }
 
-        if (playerPosList.Count == 0)
-        {
-            playerPosList.Add(playerPos);
-            return;
-        }
-        else if (playerPosList[playerPosList.Count - 1] != playerPos)
-        {
-            playerPosList.Add(playerPos);
-        }
+    public IEnumerator SlideMovementDown()
+    {
+        yield return new WaitForSeconds(delay);
+        transform.localScale = new Vector3(1, 0.5f, 1);
+    }
 
-        else if (transform.position.y != playerPos.y)
-        {
-            playerPosList.Add(playerPos);
-        }
-
-        if (playerPosList.Count > delay)
-        {
-            transform.position = playerPosList[0];
-            playerPosList.RemoveAt(0);
-        }
+    public IEnumerator SlideMovementUp()
+    {
+        yield return new WaitForSeconds(delay);
+        transform.localScale = new Vector3(1, 1, 1);
     }
 }
