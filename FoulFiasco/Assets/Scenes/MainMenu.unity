@@ -1111,7 +1111,7 @@ GameObject:
   - component: {fileID: 1135484819}
   - component: {fileID: 1135484818}
   m_Layer: 0
-  m_Name: PlayerPrafs
+  m_Name: PlayerPrefs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
