@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     void MovementManager()
     {
-        if ((Input.GetKeyDown(KeyCode.W)) && IsGrounded()) // als je spatie klikt en isgrounded true is of je op w klikt en isgrounded true is doe de code
+        if (((Input.GetKeyDown(KeyCode.W)) || Input.GetKeyDown(KeyCode.UpArrow)) && IsGrounded()) // als je spatie klikt en isgrounded true is of je op w klikt en isgrounded true is doe de code
         {
             rb.AddForce(Vector2.up * jump, ForceMode2D.Impulse); // zorgt ervoor dat je force toevoegd aan de y axis zodat je speler omhoog kan gaan dus kan gaan jumpen
             StartCoroutine(followPlayer.JumpMovement());
@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     void SlideManager()
     {
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             transform.localScale = new Vector3(1, 0.5f, 1);
             StartCoroutine(followPlayer.SlideMovementDown());
