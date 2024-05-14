@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.PackageManager.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BallManager : MonoBehaviour
 {
     Rigidbody2D rb;
+    PlayerInfo playerInfo;
     float shootPower = 0;
     bool playerShoot = false;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerInfo = FindAnyObjectByType<PlayerInfo>();
     }
 
     private void Update()
@@ -21,13 +24,19 @@ public class BallManager : MonoBehaviour
             if (Input.GetKey(KeyCode.Space))
             {
                 shootPower += 0.1f;
+                if (shootPower >= 30)
+                {
+                    shootPower = 30;
+                }
             }
             if (Input.GetKeyUp(KeyCode.Space))
             {
-                rb.velocity = new Vector2(20, shootPower);
+                rb.velocity = new Vector2(15, shootPower);
                 shootPower = 0;
             }
         }
+
+        GameObject.FindGameObjectWithTag("ShootBar").GetComponent<Image>().fillAmount = shootPower / 30;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,6 +44,11 @@ public class BallManager : MonoBehaviour
         if (collision.tag == "Player")
         {
             playerShoot = true;
+        }
+
+        if (collision.tag == "Goal")
+        {
+            playerInfo.score += 100;
         }
     }
 

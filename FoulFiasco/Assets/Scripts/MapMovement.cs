@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class MapMovement : MonoBehaviour
 {
-    public float speed = 0.15f;
+    PlayerInfo playerInfo;
+
+    private void Start()
+    {
+        playerInfo = FindAnyObjectByType<PlayerInfo>();
+    }
 
     private void Update()
     {
@@ -16,6 +21,6 @@ public class MapMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z);
+        transform.position = new Vector3(transform.position.x - playerInfo.speed, transform.position.y, transform.position.z);
     }
 }

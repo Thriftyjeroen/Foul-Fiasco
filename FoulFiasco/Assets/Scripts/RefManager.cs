@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RefManager : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class RefManager : MonoBehaviour
             explosionGameObject.transform.position = collision.transform.position;
             Destroy(collision.gameObject);
             StartCoroutine(DestoryParticle());
+        }
+
+        if (collision.tag == "Player")
+        {
+            SceneManager.LoadScene("MainMenu");
         }
     }
 

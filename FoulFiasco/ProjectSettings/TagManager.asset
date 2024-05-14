@@ -9,6 +9,9 @@ TagManager:
   - Map
   - Flip
   - Wall
+  - ShootBar
+  - Score
+  - Goal
   layers:
   - Default
   - TransparentFX
