@@ -19,14 +19,24 @@ public class ButtonManager : MonoBehaviour
     {
         Application.Quit();
     }
-    public enum Scene//in the enumarator u can make a group of values that has a name (keyword) for every keyword u make it will get automaticly a value that works like the index of a list of array. bud the diverence is that u can change the value that is shown by the first keyword where it is quoted out. u can also select the keyword and value with the code on line 11 where in the inspector only the keywords will be shown
-    {//if u make a enum u have to write a , at the end exept the last one
-        MainMenu/* = (number of choise)*/,
-        CoinMaster,
-        Credits,
+    public void ChooseScene(string pSceneName)
+    {
+        if (!(pSceneName == "Tutorial" && !(PlayerPrefs.GetInt("Coins") > 0)))//zolang de PlayerPrefs (wat
+        {
+            SceneManager.LoadScene(pSceneName);//de loadscene van scenemanager laat de aangegeven scene met als input een string of een interger, en sinds er een enum gebruiken gebruiken we de enum die verbonden is met de variabele enumType en daar de waarde van.
+        }
+    }
+
+    public enum Scene//dit is een enumerator, hier kan je een aantal enums(soort variabele) maken met een waarde als integer. die werkt als een array of list, maar het verschil is dat je die ook kan veranderen op de manier die is uitgequote. ook is het zo dat als je een variabele maakt zoals op regel 7 met de naam van de enum en vervolgens het script verbind met een gameObject dat je dan tussen de enums kan kiezen via de inspector
+    {//als je een nieuwe enum maakt zorg dan dat je een comma plaats tussen de enum met de laatste enum geen comma erachter
+        MainMenu/* = (getal naar keuze)*/,
+        development
         Game,
+        Tutorial,
+        CoinMaster,
         Scores,
+        CutScene,
         Settings,
-        CutScene
+        Credits
     }
 }
