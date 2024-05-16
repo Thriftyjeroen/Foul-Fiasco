@@ -1,4 +1,56 @@
+Foul Fiasco
+
+
+
+Sprites:
+Fleur Spannenberg
+Thom Hermelink
+Daniel Kosters
+Alkan Cakir
+Jeroen Verboom
+
+Programming:
+Fleur Spannenberg
+Thom Hermelink
+Daniel Kosters
+Alkan Cakir
+Jeroen Verboom
+
+Story:
+Fleur Spannenberg
+Thom Hermelink
+Daniel Kosters
+Alkan Cakir
+Jeroen Verboom
+
+Music:
+Jeroen Verboom
+
+SFX:
+Jeroen Verboom
+
+Background cheering:
+Ricardo Finke
+Jens Schagen 
+Thom Hermelink
+Johnairo Moor
+Jeroen Verboom
+Jorick Wassink
+Bram Elkink
+Sam Schutten
+
+Testers:
+Thom Hermelink
+Jorick Wassink
+Ricardo Finke
+
+Special thanks:
+Eric Cantona
+GEP Henneberke
+Marielle van Harskamp
+Alkan's mom
+Rients Dijkstra
+Fleur's mom
+D-Point
+
 Press enter to exit
-please
-skibidi toilet
-placeholder text
