@@ -12,6 +12,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundLayer;
 
+    PlayerInfo playerInfo;
+
+    private void Start()
+    {
+        playerInfo = FindAnyObjectByType<PlayerInfo>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -48,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.tag == "Tutorial")
         {
+            playerInfo.score = 0;
             SceneManager.LoadScene("MainMenu");
         }
     }

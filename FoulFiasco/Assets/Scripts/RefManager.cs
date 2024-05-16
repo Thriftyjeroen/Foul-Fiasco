@@ -8,6 +8,13 @@ public class RefManager : MonoBehaviour
     [SerializeField] GameObject explosion;
     GameObject explosionGameObject;
 
+    PlayerInfo playerInfo;
+
+    private void Start()
+    {
+        playerInfo = FindAnyObjectByType<PlayerInfo>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Wall" || collision.tag == "Ball")
@@ -21,6 +28,7 @@ public class RefManager : MonoBehaviour
 
         if (collision.tag == "Player")
         {
+            playerInfo.score = 0;
             SceneManager.LoadScene("MainMenu");
         }
     }

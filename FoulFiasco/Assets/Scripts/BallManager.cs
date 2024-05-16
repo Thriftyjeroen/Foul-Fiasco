@@ -23,7 +23,7 @@ public class BallManager : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Space))
             {
-                shootPower += 0.1f;
+                shootPower += 0.15f;
                 if (shootPower >= 30)
                 {
                     shootPower = 30;

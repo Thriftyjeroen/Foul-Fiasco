@@ -17,8 +17,11 @@ public class PlayerInfo : MonoBehaviour
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
+    }
 
-        if (GameObject.FindGameObjectWithTag("Score"))
+    private void Update()
+    {
+        if (GameObject.FindGameObjectWithTag("Score") != null)
         {
             scoreText = GameObject.FindGameObjectWithTag("Score").GetComponent<TMP_Text>();
         }
@@ -33,7 +36,7 @@ public class PlayerInfo : MonoBehaviour
             time = 0;
         }
 
-        if (GameObject.FindGameObjectWithTag("Score"))
+        if (GameObject.FindGameObjectWithTag("Score")  != null)
         {
             scoreText.text = score.ToString();
         }
