@@ -16,7 +16,12 @@ public class PlayerInfo : MonoBehaviour
 
     private void Start()
     {
-        scoreText = GameObject.FindGameObjectWithTag("Score").GetComponent<TMP_Text>();
+        DontDestroyOnLoad(gameObject);
+
+        if (GameObject.FindGameObjectWithTag("Score"))
+        {
+            scoreText = GameObject.FindGameObjectWithTag("Score").GetComponent<TMP_Text>();
+        }
     }
 
     private void FixedUpdate()
@@ -28,7 +33,10 @@ public class PlayerInfo : MonoBehaviour
             time = 0;
         }
 
-        scoreText.text = score.ToString();
+        if (GameObject.FindGameObjectWithTag("Score"))
+        {
+            scoreText.text = score.ToString();
+        }
 
         switch (score)
         {

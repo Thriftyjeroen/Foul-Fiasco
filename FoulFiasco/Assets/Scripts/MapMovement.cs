@@ -5,6 +5,7 @@ using UnityEngine;
 public class MapMovement : MonoBehaviour
 {
     PlayerInfo playerInfo;
+    [SerializeField] bool tutorial;
 
     private void Start()
     {
@@ -13,9 +14,12 @@ public class MapMovement : MonoBehaviour
 
     private void Update()
     {
-        if (transform.position.x <= -60)
+        if (!tutorial)
         {
-            Destroy(gameObject);
+            if (transform.position.x <= -60)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

@@ -12,6 +12,8 @@ TagManager:
   - ShootBar
   - Score
   - Goal
+  - Tutorial
+  - PlayerInfo
   layers:
   - Default
   - TransparentFX
