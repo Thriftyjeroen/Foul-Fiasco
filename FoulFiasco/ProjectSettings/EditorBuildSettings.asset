@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Game.unity
     guid: 309fb600e23bf7840a751464c2a94df5
   - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
-    guid: 9309864b16b31f64083c3417f76526ff
-  - enabled: 1
     path: Assets/Scenes/CoinMaster.unity
     guid: e25768c72268da043a394cbfca20b068
   - enabled: 1
@@ -29,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: a41511e4ab3ec984e8d021535501f929
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 9309864b16b31f64083c3417f76526ff
   m_configObjects: {}
