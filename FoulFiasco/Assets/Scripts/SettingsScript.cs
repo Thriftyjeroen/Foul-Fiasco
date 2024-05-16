@@ -18,28 +18,28 @@ public class SettingsScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //als physics on true is word de text physics on getoont op de button
+        //if physicsOn is true, the text will change to "physics on, on the button itself"
         if(physicsOn == true)
         {
             currentSetting.text = "Physics on";
         }
-        //als physics on false is dan word de text physics off getoont op de button
+        //if PhysicsOn is false, the text "Physics off" will show on the button itself
         else if (physicsOn == false)
         {
             currentSetting.text = "Physics off";
         }
     }
 
-    //method om de bool physics on te veranderen via de button
+    //method to change the bool value when button is pressed
     public void ChangePhysics()
     {
-        //als physicsOn op true is word de timescale op 0 gezet en physicsOn op false gezet
+        //timescale 0 when Physics on is true, also PhysicsOn will change to false
         if (physicsOn == true)
         {
             Time.timeScale = 0.0f;
             physicsOn = false;
         }
-        //als physics on op false staat word de timescale op 1 gezet en physicsOn op true gezet
+        //timescale 1 when physics on is false, and the bool physics on will change to true 
         else if (physicsOn == false)
         {
             Time.timeScale = 1.0f;
@@ -47,7 +47,7 @@ public class SettingsScript : MonoBehaviour
         }
     }
 
-    //method om main menu te loaden
+    //method to load main menu
     public void BackToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
