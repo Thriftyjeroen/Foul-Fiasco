@@ -4,10 +4,27 @@ using UnityEngine;
 
 public class MapMovement : MonoBehaviour
 {
-    public float speed = 0.15f;
+    PlayerInfo playerInfo;
+    [SerializeField] bool tutorial;
+
+    private void Start()
+    {
+        playerInfo = FindAnyObjectByType<PlayerInfo>();
+    }
+
+    private void Update()
+    {
+        if (!tutorial)
+        {
+            if (transform.position.x <= -60)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
 
     private void FixedUpdate()
     {
-        transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z);
+        transform.position = new Vector3(transform.position.x - playerInfo.speed, transform.position.y, transform.position.z);
     }
 }

@@ -1,45 +1,71 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInfo : MonoBehaviour
 {
-    MapMovement mapMovement;
-    FollowPlayer followPlayer;
     public int score = 0;
-    float time;
-    bool speedDelay = true;
+    public float speed = 0.1f;
 
-    private void Awake()
+    float time;
+
+    TMP_Text scoreText;
+
+    private void Start()
     {
-        mapMovement = FindAnyObjectByType<MapMovement>();
-        followPlayer = FindAnyObjectByType<FollowPlayer>();
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Update()
     {
+        if (GameObject.FindGameObjectWithTag("Score") != null)
+        {
+            scoreText = GameObject.FindGameObjectWithTag("Score").GetComponent<TMP_Text>();
+        }
+    }
+
+    private void FixedUpdate()
+    {
         time += Time.deltaTime;
-        if (time > 0.05f)
+        if (time > 0.1f)
         {
             score++;
             time = 0;
         }
 
-        if (score % 100 == 0)
+        if (GameObject.FindGameObjectWithTag("Score")  != null)
         {
-            if (speedDelay)
-            {
-                mapMovement.speed = mapMovement.speed * 1.2f;
-                followPlayer.delay = followPlayer.delay / 1.2f;
-                speedDelay = false;
-                StartCoroutine(BoolDelay());
-            }
+            scoreText.text = score.ToString();
         }
-    }
 
-    IEnumerator BoolDelay()
-    {
-        yield return new WaitForSeconds(0.5f);
-        speedDelay = true;
+        switch (score)
+        {
+            case 100:
+                speed = 0.12f;
+                break;
+
+            case 250:
+                speed = 0.14f;
+                break;
+
+            case 500:
+                speed = 0.16f;
+                break;
+
+            case 1000:
+                speed = 0.18f;
+                break;
+
+            case 1500:
+                speed = 0.2f;
+                break;
+
+            case 2500:
+                speed = 0.22f;
+                break;
+        }
     }
 }

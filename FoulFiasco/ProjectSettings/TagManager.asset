@@ -5,6 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ball
+  - DetectMap
+  - Map
+  - Flip
+  - Wall
+  - ShootBar
+  - Score
+  - Goal
+  - Tutorial
+  - PlayerInfo
   layers:
   - Default
   - TransparentFX

@@ -1,21 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
-    FollowPlayer followPlayer;
-    [SerializeField] Rigidbody2D rbBall;
     [SerializeField] float jump = 12;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask groundLayer;
 
-    // Start is called before the first frame update
-    void Start()
+    PlayerInfo playerInfo;
+
+    private void Start()
     {
-        followPlayer = FindAnyObjectByType<FollowPlayer>();
+        playerInfo = FindAnyObjectByType<PlayerInfo>();
     }
 
     // Update is called once per frame
@@ -35,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
         if (((Input.GetKeyDown(KeyCode.W)) || Input.GetKeyDown(KeyCode.UpArrow)) && IsGrounded()) // als je spatie klikt en isgrounded true is of je op w klikt en isgrounded true is doe de code
         {
             rb.AddForce(Vector2.up * jump, ForceMode2D.Impulse); // zorgt ervoor dat je force toevoegd aan de y axis zodat je speler omhoog kan gaan dus kan gaan jumpen
-            StartCoroutine(followPlayer.JumpMovement());
         }
     }
 
@@ -44,28 +44,19 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             transform.localScale = new Vector3(1, 0.5f, 1);
-            StartCoroutine(followPlayer.SlideMovementDown());
         }
         else
         {
             transform.localScale = new Vector3(1, 1, 1);
-            StartCoroutine(followPlayer.SlideMovementUp());
         }
     }
 
-    void KickManager()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        rbBall.velocity = new Vector2(20, 18);
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == "Ball")
+        if (collision.tag == "Tutorial")
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                KickManager();
-            }
+            playerInfo.score = 0;
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }
