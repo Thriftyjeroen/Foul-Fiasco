@@ -30,7 +30,7 @@ public class ButtonManager : MonoBehaviour
     public enum Scene//dit is een enumerator, hier kan je een aantal enums(soort variabele) maken met een waarde als integer. die werkt als een array of list, maar het verschil is dat je die ook kan veranderen op de manier die is uitgequote. ook is het zo dat als je een variabele maakt zoals op regel 7 met de naam van de enum en vervolgens het script verbind met een gameObject dat je dan tussen de enums kan kiezen via de inspector
     {//als je een nieuwe enum maakt zorg dan dat je een comma plaats tussen de enum met de laatste enum geen comma erachter
         MainMenu/* = (getal naar keuze)*/,
-        development
+        development,
         Game,
         Tutorial,
         CoinMaster,

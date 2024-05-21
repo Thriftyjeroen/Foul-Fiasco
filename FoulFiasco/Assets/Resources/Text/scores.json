@@ -1,0 +1,44 @@
+{
+  "scores": [
+    {
+      "name": "Jeroen Verboom",
+      "score": 100000000000
+    },
+    {
+      "name": "Jorick Wassink",
+      "score": 10000000000
+    },
+    {
+      "name": "Sam Schutten",
+      "score": 1000000000
+    },
+    {
+      "name": "Alkan Cakir",
+      "score": 100000000
+    },
+    {
+      "name": "Fleur Spa",
+      "score": 10000000
+    },
+    {
+      "name": "Thom Hermelink",
+      "score": 1000000
+    },
+    {
+      "name": "Ricardo Finke",
+      "score": 100000
+    },
+    {
+      "name": "Rients Dijkstra",
+      "score": 10000
+    },
+    {
+      "name": "Kenny",
+      "score": 1000
+    },
+    {
+      "name": "Banaan",
+      "score": 100
+    }
+  ]
+}
