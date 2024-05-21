@@ -1,44 +1,44 @@
 {
   "scores": [
     {
-      "name": "Jeroen Verboom",
-      "score": 100000000000
+      "name": "Jeroen Boom",
+      "score": 10
     },
     {
-      "name": "Jorick Wassink",
-      "score": 10000000000
+      "name": "Jorick Wasbeer",
+      "score": 9
     },
     {
-      "name": "Sam Schutten",
-      "score": 1000000000
+      "name": "Sam Schutter",
+      "score": 8
     },
     {
-      "name": "Alkan Cakir",
-      "score": 100000000
+      "name": "Alkan Koekje",
+      "score": 7
     },
     {
-      "name": "Fleur Spa",
-      "score": 10000000
+      "name": "Fleur Spa rood",
+      "score": 6
     },
     {
-      "name": "Thom Hermelink",
-      "score": 1000000
+      "name": "Tom Ermelink",
+      "score": 5
     },
     {
-      "name": "Ricardo Finke",
-      "score": 100000
+      "name": "Ricardo Flinke",
+      "score": 4
     },
     {
-      "name": "Rients Dijkstra",
-      "score": 10000
+      "name": "Rients Dijk",
+      "score": 3
     },
     {
       "name": "Kenny",
-      "score": 1000
+      "score": 2
     },
     {
       "name": "Banaan",
-      "score": 100
+      "score": 1
     }
   ]
 }
