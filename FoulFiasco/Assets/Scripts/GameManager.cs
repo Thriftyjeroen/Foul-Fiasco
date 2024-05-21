@@ -8,9 +8,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if (GameObject.FindGameObjectWithTag("PlayerInfo") ==  null)
+        if (GameObject.FindGameObjectWithTag("PlayerInfo") ==  null) // als er geen object word gevonden met de tag playerinfo doe dan de code
         {
-            Instantiate(playerInfo);
+            Instantiate(playerInfo); // maakt een clone aan van playerinfo
         }
     }
 }

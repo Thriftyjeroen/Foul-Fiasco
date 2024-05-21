@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        playerInfo = FindAnyObjectByType<PlayerInfo>();
+        playerInfo = FindAnyObjectByType<PlayerInfo>(); // zoekt een object met de script PlayerInfo
     }
 
     // Update is called once per frame
@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
-            transform.localScale = new Vector3(1, 0.5f, 1);
+            transform.localScale = new Vector3(1, 0.5f, 1); // maak de y naar 0.5f
         }
         else
         {
@@ -53,10 +53,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Tutorial")
+        if (collision.tag == "Tutorial") // als er een object word aangeraakt met de tag tutorial doe dan de code
         {
-            playerInfo.score = 0;
-            SceneManager.LoadScene("MainMenu");
+            playerInfo.score = 0; // maak de score in de script playerinfo 0
+            SceneManager.LoadScene("MainMenu"); // laad de mainmenu scene
         }
     }
 }
