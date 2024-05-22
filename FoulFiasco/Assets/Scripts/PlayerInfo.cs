@@ -6,6 +6,8 @@ public class PlayerInfo : MonoBehaviour
     public int score = 0;
     public float speed = 0.1f;
 
+    public bool startTime = true;
+
     float time;
 
     TMP_Text scoreText;
@@ -28,19 +30,22 @@ public class PlayerInfo : MonoBehaviour
 
     private void FixedUpdate()
     {
-        time += Time.deltaTime;
-
-        //if the time is higher than 0,1
-        if (time > 0.1f)
+        if (startTime)
         {
-            //1 gets added to score
-            score++;
-            //time reset to 0
-            time = 0;
+            time += Time.deltaTime;
+
+            //if the time is higher than 0,1
+            if (time > 0.1f)
+            {
+                //1 gets added to score
+                score++;
+                //time reset to 0
+                time = 0;
+            }
         }
 
         //if there is a gameobject with the tag "score"
-        if (GameObject.FindGameObjectWithTag("Score")  != null)
+        if (GameObject.FindGameObjectWithTag("Score") != null)
         {
             //scoreText is set to score variale to string
             scoreText.text = score.ToString();

@@ -53,6 +53,12 @@ public class ScoreUploader : MonoBehaviour
                             newEntry.name = pName;
                             scoresList.Insert(j, newEntry);
                             scoresList.RemoveAt(10);
+                            string newData = JsonUtility.ToJson(wrapper);
+                            File.WriteAllText($"{Application.dataPath}/Resources/Text/scores.json", newData);
+                            Process p = new Process(); // Starts a new process object
+                            p.StartInfo.FileName = $"{Application.dataPath}/Resources/Text/upload.exe"; // Inits the process to run the download program
+                            p.Start(); // Starts the process
+                            p.WaitForExit();
                             break;
                         }
                     }
@@ -63,12 +69,6 @@ public class ScoreUploader : MonoBehaviour
                     // Do nothing
                 }
             }
-            string newData = JsonUtility.ToJson(wrapper);
-            File.WriteAllText($"{Application.dataPath}/Resources/Text/scores.json", newData);
-            Process p = new Process(); // Starts a new process object
-            p.StartInfo.FileName = $"{Application.dataPath}/Resources/Text/upload.exe"; // Inits the process to run the download program
-            p.Start(); // Starts the process
-            print("Done");
         }
     }
 
