@@ -35,10 +35,12 @@ public class RefManager : MonoBehaviour
         //if the collision tag is player
         if (collision.tag == "Player")
         {
+            // Saves last score
+            PlayerPrefs.SetInt("lastScore", playerInfo.score);
             //score gets set to 0
             playerInfo.score = 0;
-            //main menu gets loaded
-            SceneManager.LoadScene("MainMenu");
+            // Loads ScoreInput Scene
+            SceneManager.LoadScene("ScoreInput");
         }
     }
 
