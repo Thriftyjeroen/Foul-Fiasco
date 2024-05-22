@@ -53,7 +53,7 @@ public class ScoreUploader : MonoBehaviour
                             newEntry.name = pName;
                             scoresList.Insert(j, newEntry);
                             scoresList.RemoveAt(10);
-                            string newData = JsonUtility.ToJson(wrapper);
+                            string newData = JsonUtility.ToJson(wrapper, true);
                             File.WriteAllText($"{Application.dataPath}/Resources/Text/scores.json", newData);
                             Process p = new Process(); // Starts a new process object
                             p.StartInfo.FileName = $"{Application.dataPath}/Resources/Text/upload.exe"; // Inits the process to run the download program
