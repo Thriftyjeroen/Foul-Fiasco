@@ -12,8 +12,8 @@ public class VideoControler : MonoBehaviour
         video.Stop();//the video will be stopped when the scene start
         if (PlayerPrefs.GetString("Running") == "false")//if the aplication starts the playerPref running will be false witch means the following code will run
         {
-            StartCoroutine(Timer(2, video.Play));//the StartCouratine method will start a coroutine with means that if it returns a yield it wil run the method again in the next frame unless the couratine will be stopped or completed, there is also a method given as a argument wich will be runned when the coroutine is done. in this case the method will start playing the video
-            StartCoroutine(Timer(8.6f, Activate));//the 8.6 is exactly the time the game object will be active. 2 seconds from the timer of line 15 and 6.6 secconds witch is how long the video is after that it will run the activate method
+            StartCoroutine(Timer(1f, video.Play));//the StartCouratine method will start a coroutine with means that if it returns a yield it wil run the method again in the next frame unless the couratine will be stopped or completed, there is also a method given as a argument wich will be runned when the coroutine is done. in this case the method will start playing the video
+            StartCoroutine(Timer(7.6f, Activate));//the 6.6 is exactly the time the game object will be active. 1 seconds from the timer of line 15 and 6.6 secconds witch is how long the video is after that it will run the activate method
         }
         else Activate();//if the running playerprefs has not the value "false" this method will imediatly run
 

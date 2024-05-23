@@ -1,12 +1,24 @@
 {
     "scores": [
         {
+            "name": "testnaam",
+            "score": 565
+        },
+        {
+            "name": "Enter Name",
+            "score": 458
+        },
+        {
             "name": "buh",
             "score": 182
         },
         {
             "name": "Sam",
             "score": 149
+        },
+        {
+            "name": "hele mooie naam",
+            "score": 140
         },
         {
             "name": "Thrifty",
@@ -21,24 +33,12 @@
             "score": 58
         },
         {
+            "name": "test123",
+            "score": 48
+        },
+        {
             "name": "EGG",
             "score": 48
-        },
-        {
-            "name": "Thrifty",
-            "score": 48
-        },
-        {
-            "name": "Thrifty",
-            "score": 48
-        },
-        {
-            "name": "Thom",
-            "score": 48
-        },
-        {
-            "name": "Placeholder",
-            "score": 0
         }
     ]
 }
