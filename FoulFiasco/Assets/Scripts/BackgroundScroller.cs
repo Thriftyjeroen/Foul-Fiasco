@@ -24,5 +24,6 @@ public class BackgroundScroller : MonoBehaviour
 
         // Update the texture offset of the material to create a scrolling effect
         mat.SetTextureOffset("_MainTex", new Vector2(offset, 0));
+
     }
 }

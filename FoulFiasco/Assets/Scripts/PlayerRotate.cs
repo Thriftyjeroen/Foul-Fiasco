@@ -2,26 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimationManager : MonoBehaviour
+public class PlayerRotate : MonoBehaviour
 {
     // Variable for the PlayerInfo script
     PlayerInfo playerInfo;
   
-    // Variable for the PlayerMovement script
-    PlayerMovement playerMovement;
-
-    // Variable for the RefManager script
-    RefManager refManager;
 
     // Start is called before the first frame update
     void Start()
     {
         // Fetches the PlayerInfo script from the PlayerInfo object
         playerInfo = GameObject.Find("PlayerInfo").GetComponent<PlayerInfo>();
-        // Fetches the PlayerMovement script
-        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
-        // Fetches the RefManager script from the ref object
-        refManager = GameObject.Find("Ref").GetComponent<RefManager>();
     }
 
     // Update is called once per frame
