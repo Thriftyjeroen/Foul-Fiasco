@@ -21,7 +21,7 @@ public class ButtonManager : MonoBehaviour
             //playerscore gets set to 0
             playerInfo.score = 0;
 
-            //if the scene is "game", a coroutine will start tha loads the scene
+            //if the scene is "game", a coroutine will start the loads the scene
             if (scene == "Game")
             {
                 StartCoroutine(LoadScene(scene));
