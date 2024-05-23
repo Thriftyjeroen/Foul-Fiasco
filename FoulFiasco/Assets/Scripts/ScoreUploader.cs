@@ -74,14 +74,6 @@ public class ScoreUploader : MonoBehaviour
 
     // Define a class to represent a single score entry
     [System.Serializable]
-    public class ScoreEntry
-    {
-        public string name;
-        public long score;
-    }
-
-    // Define a class to wrap the list of score entries
-    [System.Serializable]
     public class ScoresWrapper
     {
         public List<ScoreEntry> scores;
