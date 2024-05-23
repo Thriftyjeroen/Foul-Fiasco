@@ -6,8 +6,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        //when there is no gameobject with the tag "playerinfo"
         if (GameObject.FindGameObjectWithTag("PlayerInfo") ==  null)
         {
+            //playerinfo gets instantiated
             Instantiate(playerInfo);
         }
     }
