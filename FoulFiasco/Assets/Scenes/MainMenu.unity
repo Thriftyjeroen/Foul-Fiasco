@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 147405868}
   - component: {fileID: 147405867}
   m_Layer: 5
-  m_Name: LinkerDoek
+  m_Name: LeftSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -798,7 +798,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &309401185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1278,12 +1278,12 @@ GameObject:
   - component: {fileID: 589835358}
   - component: {fileID: 589835362}
   m_Layer: 5
-  m_Name: Doeken
+  m_Name: Curtons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &589835358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1663,7 +1663,7 @@ GameObject:
   - component: {fileID: 1043289732}
   - component: {fileID: 1043289731}
   m_Layer: 5
-  m_Name: RechterDoek
+  m_Name: RightSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2997,7 +2997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27746272ccdf0ad45bfcdcc30e4f978b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: {fileID: 0}
+  coins: {fileID: 910821673}
 --- !u!114 &1553932783
 MonoBehaviour:
   m_ObjectHideFlags: 0

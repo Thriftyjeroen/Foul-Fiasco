@@ -17,7 +17,7 @@ public class Doek : MonoBehaviour
                 doekOpen = false;
                 gameObject.SetActive(false);
             }
-            if (doek1.fillAmount != 0) ImageFillAmount();//if the value of fillAmount from the pickture doek1 is not 0 the method ImagefillAmount will be runned and becouse the fillAmount of the 2 images are the same we only need to check the value of 1 of them
+            ImageFillAmount();// the method ImagefillAmount will here be called
         }
         else //if the curtians are open this code will run witch is almost the same. the only difference is that it does the opisite of the code above with the exeption of the setActive line
         {
@@ -27,7 +27,7 @@ public class Doek : MonoBehaviour
                 doekOpen = true;
                 gameObject.SetActive(false);
             }
-            if (doek1.fillAmount != 1) ImageFillAmount();
+            ImageFillAmount();
         }
 
     }

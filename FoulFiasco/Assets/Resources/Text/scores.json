@@ -1,7 +1,7 @@
 {
     "scores": [
         {
-            "name": "testnaam",
+            "name": "testnaam1",
             "score": 565
         },
         {
@@ -13,6 +13,10 @@
             "score": 182
         },
         {
+            "name": "ik ben de klos",
+            "score": 174
+        },
+        {
             "name": "Sam",
             "score": 149
         },
@@ -21,24 +25,20 @@
             "score": 140
         },
         {
+            "name": "Test1234567890",
+            "score": 98
+        },
+        {
             "name": "Thrifty",
             "score": 98
         },
         {
-            "name": "EGG",
+            "name": "lotte",
             "score": 58
         },
         {
-            "name": "Thrifty",
+            "name": "hallo jeroen",
             "score": 58
-        },
-        {
-            "name": "test123",
-            "score": 48
-        },
-        {
-            "name": "EGG",
-            "score": 48
         }
     ]
 }
