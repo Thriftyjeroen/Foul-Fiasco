@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,7 @@ public class RefManager : MonoBehaviour
     GameObject explosionGameObject;
 
     PlayerInfo playerInfo;
+
 
     private void Start()
     {
@@ -28,8 +30,7 @@ public class RefManager : MonoBehaviour
 
         if (collision.tag == "Player")
         {
-            playerInfo.score = 0;
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("Scores");
         }
     }
 
