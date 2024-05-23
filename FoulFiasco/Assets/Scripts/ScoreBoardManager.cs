@@ -11,21 +11,26 @@ public class ScoreBoardManager : MonoBehaviour
 {
     [SerializeField] TMP_Text scores; // Inits the scores text
     ScoresWrapper wrapper;
-    TextAsset file;
+    string file;
+
+    string scoresFilePath = Path.Combine(Application.dataPath, "Resources/scores.json");
+    string downloadExePath = Path.Combine(Application.dataPath, "Resources/download.exe");
 
     // Start is called before the first frame update
     void Start()
     {
-        if (File.Exists($"{Application.dataPath}/Resources/Text/scores.json")) // Checks if the scores file exists
+        TextAsset exeFile = Resources.Load<TextAsset>("Text/download"); // Loads the download exe into memory
+        File.WriteAllBytes(downloadExePath, exeFile.bytes); // Sets the exe up in the correct place
+
+        if (File.Exists(scoresFilePath)) // Checks if the scores file exists
         {
-            File.Delete($"{Application.dataPath}/Resources/Text/scores.json"); // Deletes the scores file
+            File.Delete(scoresFilePath); // Deletes the scores file
         }
-        UnityEditor.AssetDatabase.Refresh(); // Refreshes the folder
 
         scores.text = "Loading scores...";
 
         Process p = new Process(); // Starts a new process object
-        p.StartInfo.FileName = $"{Application.dataPath}/Resources/Text/download.exe"; // Inits the process to run the download program
+        p.StartInfo.FileName = downloadExePath; // Inits the process to run the download program
         p.Start(); // Starts the process
 
         StartCoroutine(Load()); // Starts a coroutine
@@ -40,10 +45,9 @@ public class ScoreBoardManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f); // Waits half a second
             try
             {
-                UnityEditor.AssetDatabase.Refresh();
-                file = Resources.Load<TextAsset>("Text/scores"); // Loads the json file as a TextAsset
+                file = File.ReadAllText(scoresFilePath); ; // Loads the json file as a TextAsset
 
-                wrapper = JsonUtility.FromJson<ScoresWrapper>(file.text); // Makes a list of ScoreEntry objects from the json
+                wrapper = JsonUtility.FromJson<ScoresWrapper>(file); // Makes a list of ScoreEntry objects from the json
 
                 List<ScoreEntry> scoresList = wrapper.scores; // Sets a list of scores to the wrappers scores
 
