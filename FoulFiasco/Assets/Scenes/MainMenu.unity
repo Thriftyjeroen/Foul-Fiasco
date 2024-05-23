@@ -798,7 +798,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &309401185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1283,7 +1283,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &589835358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2997,7 +2997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27746272ccdf0ad45bfcdcc30e4f978b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Coins: {fileID: 0}
+  coins: {fileID: 910821673}
 --- !u!114 &1553932783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3092,7 +3092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27746272ccdf0ad45bfcdcc30e4f978b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Coins: {fileID: 910821673}
+  coins: {fileID: 0}
 --- !u!1 &2034003809
 GameObject:
   m_ObjectHideFlags: 0
