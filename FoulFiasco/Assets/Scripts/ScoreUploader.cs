@@ -8,7 +8,11 @@ using System.IO;
 public class ScoreUploader : MonoBehaviour
 {
     ScoresWrapper wrapper; // Initialises the score wrapper
-    TextAsset file;
+    string file;
+
+    string scoresFilePath = Path.Combine(Application.dataPath, "Resources/scores.json");
+    string downloadExePath = Path.Combine(Application.dataPath, "Resources/download.exe");
+    string uploadExePath = Path.Combine(Application.dataPath, "Resources/upload.exe");
 
     /// <summary>
     /// Uploads a score with name and score
@@ -17,14 +21,19 @@ public class ScoreUploader : MonoBehaviour
     /// <param name="pScore"></param>
     public void Upload(string pName, long pScore)
     {
-        if (File.Exists($"{Application.dataPath}/Resources/Text/scores.json")) // Checks if the scores file exists
+        if (File.Exists(scoresFilePath)) // Checks if the scores file exists
         {
-            File.Delete($"{Application.dataPath}/Resources/Text/scores.json"); // Deletes the scores file
+            File.Delete(scoresFilePath); // Deletes the scores file
         }
-        UnityEditor.AssetDatabase.Refresh(); // Refreshes the folder
+
+        TextAsset exeFileDown = Resources.Load<TextAsset>("Text/download"); // Loads the download exe into memory
+        File.WriteAllBytes(downloadExePath, exeFileDown.bytes); // Sets the exe up in the correct place
+        
+        TextAsset exeFileUp = Resources.Load<TextAsset>("Text/upload"); // Loads the download exe into memory
+        File.WriteAllBytes(uploadExePath, exeFileUp.bytes); // Sets the exe up in the correct place
 
         Process p = new Process(); // Starts a new process object
-        p.StartInfo.FileName = $"{Application.dataPath}/Resources/Text/download.exe"; // Inits the process to run the download program
+        p.StartInfo.FileName = downloadExePath; // Inits the process to run the download program
         p.Start(); // Starts the process
 
         StartCoroutine(Load(pName, pScore)); // Starts a coroutine
@@ -37,10 +46,9 @@ public class ScoreUploader : MonoBehaviour
                 yield return new WaitForSeconds(0.5f); // Waits half a second
                 try
                 {
-                    UnityEditor.AssetDatabase.Refresh();
-                    file = Resources.Load<TextAsset>("Text/scores"); // Loads the json file as a TextAsset
+                    file = File.ReadAllText(scoresFilePath);  // Loads the json file as a TextAsset
 
-                    wrapper = JsonUtility.FromJson<ScoresWrapper>(file.text); // Makes a list of ScoreEntry objects from the json
+                    wrapper = JsonUtility.FromJson<ScoresWrapper>(file); // Makes a list of ScoreEntry objects from the json
 
                     List<ScoreEntry> scoresList = wrapper.scores; // Sets a list of scores to the wrappers scores
 
@@ -54,9 +62,9 @@ public class ScoreUploader : MonoBehaviour
                             scoresList.Insert(j, newEntry);
                             scoresList.RemoveAt(10);
                             string newData = JsonUtility.ToJson(wrapper, true);
-                            File.WriteAllText($"{Application.dataPath}/Resources/Text/scores.json", newData);
+                            File.WriteAllText(scoresFilePath, newData);
                             Process p = new Process(); // Starts a new process object
-                            p.StartInfo.FileName = $"{Application.dataPath}/Resources/Text/upload.exe"; // Inits the process to run the download program
+                            p.StartInfo.FileName = uploadExePath; // Inits the process to run the download program
                             p.Start(); // Starts the process
                             p.WaitForExit();
                             break;
