@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using System.IO;
 using static UnityEngine.EventSystems.EventTrigger;
+using UnityEngine.SceneManagement;
 
 public class ScoreBoardManager : MonoBehaviour
 {
@@ -58,6 +59,14 @@ public class ScoreBoardManager : MonoBehaviour
             {
                 scores.text = "Failed to get scoreboard, please try again later";
             }
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.anyKey)
+        {
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }

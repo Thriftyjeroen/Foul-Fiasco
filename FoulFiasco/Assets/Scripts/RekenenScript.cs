@@ -158,6 +158,7 @@ public class RekenenScript : MonoBehaviour
                 PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 1);
                 SceneManager.LoadScene(0);
             }
+            else inputField.text = "wrong answer";
         }
     }
 }
