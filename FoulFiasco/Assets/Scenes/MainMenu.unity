@@ -798,7 +798,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &309401185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1283,7 +1283,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &589835358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2997,7 +2997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27746272ccdf0ad45bfcdcc30e4f978b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: {fileID: 910821673}
+  coins: {fileID: 0}
 --- !u!114 &1553932783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3062,7 +3062,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -685147172, guid: 723bf8c08f801d146ace7138053c7c8b, type: 3}
+  m_Sprite: {fileID: 1334790457, guid: 5039c1cfb3f0e8d499a66136e0e339ff, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3208,7 +3208,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -685147172, guid: 723bf8c08f801d146ace7138053c7c8b, type: 3}
+  m_Sprite: {fileID: 1334790457, guid: 5039c1cfb3f0e8d499a66136e0e339ff, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
