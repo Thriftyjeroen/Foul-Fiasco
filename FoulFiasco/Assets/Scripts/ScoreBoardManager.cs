@@ -16,6 +16,11 @@ public class ScoreBoardManager : MonoBehaviour
     string scoresFilePath = Path.Combine(Application.dataPath, "Resources/scores.json");
     string downloadExePath = Path.Combine(Application.dataPath, "Resources/download.exe");
 
+    private void Awake()
+    {
+        scores.text = "Loading scores...";
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +31,6 @@ public class ScoreBoardManager : MonoBehaviour
         {
             File.Delete(scoresFilePath); // Deletes the scores file
         }
-
-        scores.text = "Loading scores...";
 
         Process p = new Process(); // Starts a new process object
         p.StartInfo.FileName = downloadExePath; // Inits the process to run the download program
