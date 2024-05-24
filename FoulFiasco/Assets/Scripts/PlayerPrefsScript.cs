@@ -6,6 +6,5 @@ public class PlayerPrefsScirpt : MonoBehaviour
     {
         if (!PlayerPrefs.HasKey("Coins")) PlayerPrefs.SetInt("Coins", 3);
         if (!PlayerPrefs.HasKey("HighScore")) PlayerPrefs.SetFloat("HighScore", 0f);
-        if (!PlayerPrefs.HasKey("Running")) PlayerPrefs.SetString("Running","false");
     }
 }
