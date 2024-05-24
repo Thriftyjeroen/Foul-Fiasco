@@ -23,7 +23,6 @@ public class RefManager : MonoBehaviour
         //if the collission tag is wall or ball
         if (collision.tag == "Wall" || collision.tag == "Ball")
         {
-            
             transform.position = new Vector3(-8, transform.position.y, transform.position.z);
             //an explosion effect gets intantiated
             explosionGameObject = Instantiate(explosion);
