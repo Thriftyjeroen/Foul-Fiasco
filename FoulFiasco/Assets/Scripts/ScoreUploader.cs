@@ -28,7 +28,7 @@ public class ScoreUploader : MonoBehaviour
 
         TextAsset exeFileDown = Resources.Load<TextAsset>("Text/download"); // Loads the download exe into memory
         File.WriteAllBytes(downloadExePath, exeFileDown.bytes); // Sets the exe up in the correct place
-        
+
         TextAsset exeFileUp = Resources.Load<TextAsset>("Text/upload"); // Loads the download exe into memory
         File.WriteAllBytes(uploadExePath, exeFileUp.bytes); // Sets the exe up in the correct place
 
