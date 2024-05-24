@@ -156,10 +156,10 @@ public class RekenenScript : MonoBehaviour
             if (inputField.text == answer)//if the answer is the same as the value of the inputfield will the Value of the Coins playerpref will be 1 more and the mainmenu scene will be loaded
             {
                 PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 1);
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene("MainMenu");
             }
             else inputField.text = "wrong answer";
         }
-        if (Input.GetKeyDown(KeyCode.Escape)) SceneManager.LoadScene(0);//if the player decide to go back to main menu it can do so by pressing Escape button
+        if (Input.GetKeyDown(KeyCode.Escape)) SceneManager.LoadScene("MainMenu");//if the player decide to go back to main menu it can do so by pressing Escape button
     }
 }
