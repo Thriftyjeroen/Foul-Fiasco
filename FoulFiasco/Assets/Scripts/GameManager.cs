@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,9 +6,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if (GameObject.FindGameObjectWithTag("PlayerInfo") ==  null) // als er geen object word gevonden met de tag playerinfo doe dan de code
+        //when there is no gameobject with the tag "playerinfo"
+        if (GameObject.FindGameObjectWithTag("PlayerInfo") ==  null)
         {
-            Instantiate(playerInfo); // maakt een clone aan van playerinfo
+            //playerinfo gets instantiated
+            Instantiate(playerInfo);
         }
     }
 }

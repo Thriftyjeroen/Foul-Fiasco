@@ -151,13 +151,15 @@ public class RekenenScript : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.KeypadEnter)||Input.GetKey(KeyCode.Return))//if the enter button is pressed on the keypad or the big enter button on your keyboard (this is origanaly called the return button so that is why i use the return keycode to make it possible that the other enter butten can be used)
+        if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Return))//if the enter button is pressed on the keypad or the big enter button on your keyboard (this is origanaly called the return button so that is why i use the return keycode to make it possible that the other enter butten can be used)
         {
             if (inputField.text == answer)//if the answer is the same as the value of the inputfield will the Value of the Coins playerpref will be 1 more and the mainmenu scene will be loaded
             {
                 PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 1);
                 SceneManager.LoadScene(0);
             }
+            else inputField.text = "wrong answer";
         }
+        if (Input.GetKeyDown(KeyCode.Escape)) SceneManager.LoadScene(0);//if the player decide to go back to main menu it can do so by pressing Escape button
     }
 }

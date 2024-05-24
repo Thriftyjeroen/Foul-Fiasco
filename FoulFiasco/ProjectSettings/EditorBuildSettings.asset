@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 9309864b16b31f64083c3417f76526ff
+  - enabled: 1
+    path: Assets/Scenes/ScoreInput.unity
+    guid: 7922cac4212b71c4b988f1bddfb0e59b
   m_configObjects: {}

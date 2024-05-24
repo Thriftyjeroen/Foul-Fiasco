@@ -1,44 +1,44 @@
 {
-  "scores": [
-    {
-      "name": "Jeroen Boom",
-      "score": 10
-    },
-    {
-      "name": "Jorick Wasbeer",
-      "score": 9
-    },
-    {
-      "name": "Sam Schutter",
-      "score": 8
-    },
-    {
-      "name": "Alkan Koekje",
-      "score": 7
-    },
-    {
-      "name": "Fleur Spa rood",
-      "score": 6
-    },
-    {
-      "name": "Tom Ermelink",
-      "score": 5
-    },
-    {
-      "name": "Ricardo Flinke",
-      "score": 4
-    },
-    {
-      "name": "Rients Dijk",
-      "score": 3
-    },
-    {
-      "name": "Kenny",
-      "score": 2
-    },
-    {
-      "name": "Banaan",
-      "score": 1
-    }
-  ]
+    "scores": [
+        {
+            "name": "testnaam1",
+            "score": 565
+        },
+        {
+            "name": "Enter Name",
+            "score": 458
+        },
+        {
+            "name": "buh",
+            "score": 182
+        },
+        {
+            "name": "ik ben de klos",
+            "score": 174
+        },
+        {
+            "name": "Sam",
+            "score": 149
+        },
+        {
+            "name": "hele mooie naam",
+            "score": 140
+        },
+        {
+            "name": "Test1234567890",
+            "score": 98
+        },
+        {
+            "name": "Thrifty",
+            "score": 98
+        },
+        {
+            "name": "lotte",
+            "score": 58
+        },
+        {
+            "name": "hallo jeroen",
+            "score": 58
+        }
+    ]
 }

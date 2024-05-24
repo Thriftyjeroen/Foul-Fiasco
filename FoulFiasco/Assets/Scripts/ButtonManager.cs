@@ -1,43 +1,39 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
     PlayerInfo playerInfo;
-
+    [SerializeField] GameObject gO;
     public void Start()
+    { playerInfo = FindAnyObjectByType<PlayerInfo>(); }//the first script found in the project will with this code be connected with the variable playerInfo
+    public void ChangeScene(string scene)//this method will change the scene. It wil in our situation always be called by a butten, bud it ask for a string as a parameter witch will be given in the inspector (THX, alkan for relising this is possible)
     {
-        playerInfo = FindAnyObjectByType<PlayerInfo>();
-        if (!(PlayerPrefs.HasKey("Coins"))) PlayerPrefs.SetInt("Coins", 3);
-    }
-    public Scene enumType;//hier word de scene bepaald op basis van de scene die geselecteerd word in de inspector van de gameObject waar dit script aan verbonden is
-    public void ChangeScene()
-    {
-        if (!((int)enumType == 3 && !(PlayerPrefs.GetInt("Coins") > 0)))//zolang de PlayerPrefs (wat
+        if (!(scene == "Game" && !(PlayerPrefs.GetInt("Coins") > 0)))//as long the scene is not Game and the coins are not higher than 0 the code will not run, every other situation it will run
         {
-            SceneManager.LoadScene((int)enumType);//de loadscene van scenemanager laat de aangegeven scene met als input een string of een interger, en sinds er een enum gebruiken gebruiken we de enum die verbonden is met de variabele enumType en daar de waarde van.
+            if (scene == "Game") PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - 1);
+            gO.SetActive(true);//the gameObject thats connected in the inspector with gO will be activated
+            StartCoroutine(LoadScene(scene));//the StartCouratine method will start a coroutine with means that if it returns a yield it wil run the method again in the next frame unless the couratine will be stopped or completed
         }
     }
-    public void LeaveGame()//deze method zorgt dat de aplicatie af gesloten kan worden op basis van een knop (wat deze method laat runnen)
+    IEnumerator LoadScene(string loadScene, int time = 2)//this method will load a scene with the given scene after the 4 secconds has past
     {
-        Application.Quit();
+        yield return new WaitForSeconds(time);//this code wil return a yield as long the time in secconds given in WaitForSeconds (that is what i understand from the documentation)
+        if (loadScene != "quit")
+        {
+            playerInfo.score = 0;//the score variable of PlayerInfo script thats connected with the playerInfo variable will be set to 0
+            SceneManager.LoadScene(loadScene);//the LoadScene from SceneManager will load a scene based on its name or number. Witch means u can load a scene with a string or int
+        }
+        else
+        {
+            PlayerPrefs.SetString("Running", "false");//if the user desides to quit the game the playerPref Running wil get the falue "false" becouse the aplication will not run after the next line of code
+            Application.Quit();//if the game is a build the Aplication will quit. otherwise this line of code will not work
+        }
     }
-
-    public void ChooseScene(string pSceneName)
+    public void LeaveGame()//this method makes sure the application will quit.
     {
-        playerInfo.score = 0;
-        SceneManager.LoadScene(pSceneName);
-    }
-
-    public enum Scene//dit is een enumerator, hier kan je een aantal enums(soort variabele) maken met een waarde als integer. die werkt als een array of list, maar het verschil is dat je die ook kan veranderen op de manier die is uitgequote. ook is het zo dat als je een variabele maakt zoals op regel 7 met de naam van de enum en vervolgens het script verbind met een gameObject dat je dan tussen de enums kan kiezen via de inspector
-    {//als je een nieuwe enum maakt zorg dan dat je een comma plaats tussen de enum met de laatste enum geen comma erachter
-        MainMenu/* = (getal naar keuze)*/,
-        Game,
-        Tutorial,
-        CoinMaster,
-        Scores,
-        CutScene,
-        Settings,
-        Credits
+        StartCoroutine(LoadScene("quit"));
+        gO.SetActive(true);
     }
 }

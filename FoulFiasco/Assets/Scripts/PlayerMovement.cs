@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,31 +5,28 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float jump = 12;
-    [SerializeField] Transform groundCheck;
-    [SerializeField] LayerMask groundLayer;
 
     PlayerInfo playerInfo;
 
+    bool isGrounded = false;
+    public bool isSliding = false;
+
     private void Start()
     {
-        playerInfo = FindAnyObjectByType<PlayerInfo>(); // zoekt een object met de script PlayerInfo
+        playerInfo = FindAnyObjectByType<PlayerInfo>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        print(isGrounded);
         MovementManager();
         SlideManager();
     }
 
-    bool IsGrounded() // maakt een method die een bool returned
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer); // kijkt of de groundcheck position de groundlayer overlapt
-    }
-
     void MovementManager()
     {
-        if (((Input.GetKeyDown(KeyCode.W)) || Input.GetKeyDown(KeyCode.UpArrow)) && IsGrounded()) // als je spatie klikt en isgrounded true is of je op w klikt en isgrounded true is doe de code
+        if (((Input.GetKeyDown(KeyCode.W)) || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded) // als je spatie klikt en isgrounded true is of je op w klikt en isgrounded true is doe de code
         {
             rb.AddForce(Vector2.up * jump, ForceMode2D.Impulse); // zorgt ervoor dat je force toevoegd aan de y axis zodat je speler omhoog kan gaan dus kan gaan jumpen
         }
@@ -43,20 +36,32 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
-            transform.localScale = new Vector3(1, 0.5f, 1); // maak de y naar 0.5f
+            transform.localScale = new Vector3(1, 0.5f, 1);
+            isSliding = true;
         }
         else
         {
             transform.localScale = new Vector3(1, 1, 1);
+            isSliding = false;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Tutorial") // als er een object word aangeraakt met de tag tutorial doe dan de code
+        if (collision.tag == "Tutorial")
         {
-            playerInfo.score = 0; // maak de score in de script playerinfo 0
-            SceneManager.LoadScene("MainMenu"); // laad de mainmenu scene
+            playerInfo.score = 0;
+            SceneManager.LoadScene("MainMenu");
         }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+            isGrounded = true;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        isGrounded = false;
     }
 }

@@ -5,63 +5,56 @@ using TMPro;
 using UnityEngine;
 using System.IO;
 using static UnityEngine.EventSystems.EventTrigger;
-using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class ScoreBoardManager : MonoBehaviour
 {
     [SerializeField] TMP_Text scores; // Inits the scores text
     ScoresWrapper wrapper;
-    TextAsset file;
-    List<ScoreEntry> scoresList;
-    PlayerInfo playerInfo;
-    Process p = new Process(); // Starts a new process object
+    string file;
+
+    string scoresFilePath = Path.Combine(Application.dataPath, "Resources/scores.json");
+    string downloadExePath = Path.Combine(Application.dataPath, "Resources/download.exe");
+
+    private void Awake()
+    {
+        scores.text = "Loading scores...";
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        playerInfo = FindAnyObjectByType<PlayerInfo>();
+        TextAsset exeFile = Resources.Load<TextAsset>("Text/download"); // Loads the download exe into memory
+        File.WriteAllBytes(downloadExePath, exeFile.bytes); // Sets the exe up in the correct place
 
-        if (File.Exists($"{Application.dataPath}/Resources/Text/scores.json")) // Checks if the scores file exists
+        if (File.Exists(scoresFilePath)) // Checks if the scores file exists
         {
-            File.Delete($"{Application.dataPath}/Resources/Text/scores.json"); // Deletes the scores file
+            File.Delete(scoresFilePath); // Deletes the scores file
         }
 
-        p.StartInfo.FileName = $"{Application.dataPath}/Resources/Text/download.exe"; // Inits the process to run the download program
+        Process p = new Process(); // Starts a new process object
+        p.StartInfo.FileName = downloadExePath; // Inits the process to run the download program
         p.Start(); // Starts the process
 
-        scores.text = "Loading scores...";
-
         StartCoroutine(Load()); // Starts a coroutine
-    }
-
-    void Update()
-    {
-        if (Resources.Load<TextAsset>("Text/scores") == null)
-        {
-            UnityEditor.AssetDatabase.Refresh(); // Refreshes the folder
-        }
     }
 
     // Loads the scores file
     IEnumerator Load()
     {
-        Upload();
-
         for (int i = 0; i < 15; i++) // Repeats 15 times
         {
             scores.text = "Loading scores...";
             yield return new WaitForSeconds(0.5f); // Waits half a second
             try
             {
-                UnityEditor.AssetDatabase.Refresh();
+                file = File.ReadAllText(scoresFilePath); ; // Loads the json file as a TextAsset
+
+                wrapper = JsonUtility.FromJson<ScoresWrapper>(file); // Makes a list of ScoreEntry objects from the json
+
+                List<ScoreEntry> scoresList = wrapper.scores; // Sets a list of scores to the wrappers scores
 
                 scores.text = "Scoreboard";
-
-                file = Resources.Load<TextAsset>("Text/scores"); // Loads the json file as a TextAsset
-
-                wrapper = JsonUtility.FromJson<ScoresWrapper>(file.text); // Makes a list of ScoreEntry objects from the json
-
-                scoresList = wrapper.scores; // Sets a list of scores to the wrappers scores
 
                 for (int j = 0; j < 10; j++) // Repeats 10 times
                 {
@@ -76,28 +69,12 @@ public class ScoreBoardManager : MonoBehaviour
         }
     }
 
-
-    void Upload()
+    private void Update()
     {
-        file = Resources.Load<TextAsset>("Text/scores"); // Loads the json file as a TextAsset
-
-        wrapper = JsonUtility.FromJson<ScoresWrapper>(file.text); // Makes a list of ScoreEntry objects from the json
-
-        scoresList = wrapper.scores; // Sets a list of scores to the wrappers scores
-
-        for (int i = 0; i < 10; i++)
+        if (Input.anyKey)
         {
-            if (playerInfo.score > scoresList[i].score)
-            {
-                scoresList[i].score = playerInfo.score;
-
-                p.StartInfo.FileName = $"{Application.dataPath}/Resources/Text/upload.exe"; // Inits the process to run the download program
-                break;
-            }
+            SceneManager.LoadScene("MainMenu");
         }
-
-        var str = JsonUtility.ToJson(scoresList, true);
-        JsonUtility.FromJsonOverwrite($"{Application.dataPath}/Resources/Text/scores", str);
     }
 }
 
