@@ -23,7 +23,7 @@ public class BallManager : MonoBehaviour
             //when the user presses the space button
             if (Input.GetKey(KeyCode.Space))
             {
-                //+0,15 gets added to shootpower
+                //+0.15 gets added to shootpower
                 shootPower += 0.15f;
 
                 //if shootpower is over or equal to 30
