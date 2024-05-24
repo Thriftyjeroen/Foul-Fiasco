@@ -27,7 +27,7 @@ public class RefManager : MonoBehaviour
             //an explosion effect gets intantiated
             explosionGameObject = Instantiate(explosion);
             //explosion position gets set to the collission position
-            explosionGameObject.transform.position = collision.transform.position;
+            explosionGameObject.transform.position = new Vector3(transform.position.x + 1, transform.position.y, 0);
             //collission object gets destroyed
             Destroy(collision.gameObject);
             //particles gets emitted from the explosion
