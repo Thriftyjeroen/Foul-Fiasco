@@ -15,15 +15,15 @@ public class RandomMap : MonoBehaviour
             //if ballmapcount is not 4
             if (ballMapCount != 4)
             {
-                //instantiates ballmaparray with a random range between 0 and 1
-                Instantiate(mapArray[Random.Range(0, 1)]);
+                //instantiates ballmaparray with a random range between maparray length
+                Instantiate(mapArray[Random.Range(0, mapArray.Length)]);
                 ballMapCount++;
             }
             
             else
             {
-                //instantiates ballmaparray with a random range between 0 and 1
-                Instantiate(ballMapArray[Random.Range(0, 1)]);
+                //instantiates ballmaparray with a random range between 0 and ballmaparray length
+                Instantiate(ballMapArray[Random.Range(0, ballMapArray.Length)]);
                 //ballmapcount gets reset to 0
                 ballMapCount = 0;
             }
