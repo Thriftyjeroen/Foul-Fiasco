@@ -30,21 +30,21 @@ public class RekenenScript : MonoBehaviour
     {
         for (int times = UnityEngine.Random.Range(2, 5); times > 0; times--)//the sum will have a random length, from 2 values to 4 values
         {
-            sum.Add(UnityEngine.Random.Range(1, 101).ToString());//the sum will get a random number as a string
+            sum.Add(UnityEngine.Random.Range(1, 11).ToString());//the sum will get a random number as a string
             print(sum.Last());//for testing purpose the generated number will be printed to the console
-            switch (UnityEngine.Random.Range(1, 5))//based on the random number a opperator will be chosen and added to the sum
+            switch (UnityEngine.Random.Range(1, 4))//based on the random number a opperator will be chosen and added to the sum
             {
                 case 1:
-                    sum.Add("*");
-                    break;
-                case 2:
-                    sum.Add("/");
-                    break;
-                case 3:
                     sum.Add("+");
                     break;
-                case 4:
+                case 2:
                     sum.Add("-");
+                    break;
+                case 3:
+                    sum.Add("*");
+                    break;
+                case 4:
+                    sum.Add("/");
                     break;
                 default:
                     print("er is iets mis gegaan in rekenenScript in SumGenerator Method");

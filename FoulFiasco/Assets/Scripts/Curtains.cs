@@ -15,7 +15,7 @@ public class Curtains : MonoBehaviour
             if (curtainsClosed)//when the curtains are open (the user can not see the picktures) the following the aplication will run the following code
             {
                 if (time < iTime) time += Time.deltaTime;//if the time is smaller than the value of itime the value of time will be increased with the time between the frames
-                else SetActive(true);
+                else SetActive(false);
                 ImageFillAmount();// the method ImagefillAmount will here be called
             }
             else //if the curtians are open this code will run witch is almost the same. the only difference is that it does the opisite of the code above with the exeption of the setActive line
@@ -42,6 +42,5 @@ public class Curtains : MonoBehaviour
     {
         curtainsClosed = pCurtainsColsed;
         gameObject.SetActive(false);
-        //if (gO != null) gO.SetActive(true);
     }
 }
