@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class ScoreInputManager : MonoBehaviour
 {
@@ -14,7 +15,6 @@ public class ScoreInputManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         //playerinfo gets assigned to the playerinfo object
         playerInfo = FindAnyObjectByType<PlayerInfo>();
 

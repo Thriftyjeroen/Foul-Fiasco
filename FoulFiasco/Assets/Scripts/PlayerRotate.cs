@@ -42,7 +42,7 @@ public class PlayerRotate : MonoBehaviour
             float speed = playerInfo.speed;
 
             // Calculate the rotation angle based on the speed
-            float rotationAngle = speed * Time.deltaTime * -360f;
+            float rotationAngle = speed * Time.deltaTime * 10 * -360f;
 
             // Apply the rotation to the sprite
             transform.Rotate(Vector3.forward, rotationAngle);
