@@ -15,6 +15,7 @@ public class RefManager : MonoBehaviour
         playerInfo = FindAnyObjectByType<PlayerInfo>();
         //score gets set to 0
         playerInfo.score = 0;
+        playerInfo.speed = 0.1f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
