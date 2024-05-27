@@ -67,7 +67,7 @@ public class ScoreUploader : MonoBehaviour
                             p.StartInfo.FileName = uploadExePath; // Inits the process to run the download program
                             p.Start(); // Starts the process
                             p.WaitForExit();
-                            break;
+                            break; // Breaks out of the loop
                         }
                     }
                     break;

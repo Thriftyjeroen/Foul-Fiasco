@@ -4,43 +4,39 @@ using UnityEngine.SceneManagement;
 
 public class SettingsScript : MonoBehaviour
 {
-    bool physicsOn = true;
+    bool timeOn = true;
     [SerializeField] TMP_Text currentSetting;
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
     {
-        //if physicsOn is true, the text will change to "physics on, on the button itself"
-        if(physicsOn == true)
+        //if TimeOn is true, the text will change to "Time on, on the button itself"
+        if(timeOn == true)
         {
-            currentSetting.text = "Physics on";
+            currentSetting.text = "Time normal";
         }
-        //if PhysicsOn is false, the text "Physics off" will show on the button itself
-        else if (physicsOn == false)
+        //if TimeOn is false, the text "Time off" will show on the button itself
+        else if (timeOn == false)
         {
-            currentSetting.text = "Physics off";
+            currentSetting.text = "Time slow";
         }
     }
 
     //method to change the bool value when button is pressed
-    public void ChangePhysics()
+    public void ChangeTime()
     {
-        //timescale 0 when Physics on is true, also PhysicsOn will change to false
-        if (physicsOn == true)
+        //timescale 0 when Time on is true, also TimeOn will change to false
+        if (timeOn == true)
         {
-            Time.timeScale = 0.0f;
-            physicsOn = false;
+            Time.timeScale = 0.1f;
+            timeOn = false;
         }
-        //timescale 1 when physics on is false, and the bool physics on will change to true 
-        else if (physicsOn == false)
+        //timescale 1 when Time on is false, and the bool Time on will change to true 
+        else if (timeOn == false)
         {
             Time.timeScale = 1.0f;
-            physicsOn = true;
+            timeOn = true;
         }
     }
 
