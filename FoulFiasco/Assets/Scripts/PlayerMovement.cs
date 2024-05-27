@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         if (((Input.GetKeyDown(KeyCode.W)) || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded) // als je spatie klikt en isgrounded true is of je op w klikt en isgrounded true is doe de code
         {
             rb.AddForce(Vector2.up * jump, ForceMode2D.Impulse); // zorgt ervoor dat je force toevoegd aan de y axis zodat je speler omhoog kan gaan dus kan gaan jumpen
+            isGrounded = false;
         }
     }
 
@@ -40,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
+            transform.position = new Vector3(transform.position.x, transform.position.y - 0.0065f, transform.position.z);
             circleCollider.enabled = false;
             boxCollider.enabled = true;
             transform.localScale = new Vector3(1, 0.5f, 1);
@@ -61,15 +63,10 @@ public class PlayerMovement : MonoBehaviour
             playerInfo.score = 0;
             SceneManager.LoadScene("MainMenu");
         }
-    }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
+        if (collision.tag == "Ground")
+        {
             isGrounded = true;
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        isGrounded = false;
+        }
     }
 }

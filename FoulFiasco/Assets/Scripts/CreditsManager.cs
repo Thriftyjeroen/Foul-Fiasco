@@ -19,7 +19,7 @@ public class CreditsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cam.transform.position -= new Vector3(0, 0.01f, 0); // Moves the camera down with 0.01 units
+        cam.transform.position -= new Vector3(0, 0.005f, 0); // Moves the camera down with 0.01 units
         if (Input.GetKeyDown(KeyCode.Return))
         {
             SceneManager.LoadScene("MainMenu");
