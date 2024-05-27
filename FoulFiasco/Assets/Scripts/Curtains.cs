@@ -12,6 +12,7 @@ public class Curtains : MonoBehaviour
     {
         if (!PlayerPrefs.HasKey("startingGame"))
         {
+            //print("test2");
             if (curtainsClosed)//when the curtains are open (the user can not see the picktures) the following the aplication will run the following code
             {
                 if (time < iTime) time += Time.deltaTime;//if the time is smaller than the value of itime the value of time will be increased with the time between the frames
@@ -27,9 +28,10 @@ public class Curtains : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.DeleteKey("startingGame");
-            curtainsClosed = false;
-            gameObject.SetActive(false);
+            //print("test");
+            PlayerPrefs.DeleteKey("startingGame");//this code needs to run only 1 time, so to make it sure that it will after the 1 time in the whole game it will delete the key
+            SetActive(false);
+            time = iTime;//normaly the time is changed with the Time.deltaTime, bud because the curtens have to close the next time the value will be set so it wil close like it should
         }
     }
     void ImageFillAmount()//this method will change the value of the fillAmount from the 2 pictures
@@ -38,9 +40,9 @@ public class Curtains : MonoBehaviour
         curtian1.fillAmount = persentage;//the fillamount of both images will be set to the value of persentage
         curtain2.fillAmount = persentage;
     }
-    void SetActive(bool pCurtainsColsed)
+    void SetActive(bool pCurtainsClosed)//this method will change the value of curtainsClosed and deactivate the gameObject
     {
-        curtainsClosed = pCurtainsColsed;
+        curtainsClosed = pCurtainsClosed;
         gameObject.SetActive(false);
     }
 }
