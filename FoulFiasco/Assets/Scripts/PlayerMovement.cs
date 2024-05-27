@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
+            transform.position = new Vector3(transform.position.x, transform.position.y - 0.0065f, transform.position.z);
             circleCollider.enabled = false;
             boxCollider.enabled = true;
             transform.localScale = new Vector3(1, 0.5f, 1);
