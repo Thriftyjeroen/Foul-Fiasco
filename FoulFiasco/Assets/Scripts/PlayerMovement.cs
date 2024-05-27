@@ -63,10 +63,21 @@ public class PlayerMovement : MonoBehaviour
             playerInfo.score = 0;
             SceneManager.LoadScene("MainMenu");
         }
+    }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
         if (collision.tag == "Ground")
         {
             isGrounded = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Ground")
+        {
+            isGrounded = false;
         }
     }
 }
