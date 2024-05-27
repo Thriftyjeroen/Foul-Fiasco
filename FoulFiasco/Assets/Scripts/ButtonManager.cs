@@ -13,7 +13,7 @@ public class ButtonManager : MonoBehaviour
         if (!(scene == "Game" && !(PlayerPrefs.GetInt("Coins") > 0)))//as long the scene is not Game and the coins are not higher than 0 the code will not run, every other situation it will run
         {
             if (scene == "Game") PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - 1);
-            gO.SetActive(true);//the gameObject thats connected in the inspector with gO will be activated
+            gO.SetActive(true);
             StartCoroutine(LoadScene(scene));//the StartCouratine method will start a coroutine with means that if it returns a yield it wil run the method again in the next frame unless the couratine will be stopped or completed
         }
     }
@@ -33,7 +33,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void LeaveGame()//this method makes sure the application will quit.
     {
+        gO.SetActive(true);//the gameObject thats connected in the inspector with gO will be activated
         StartCoroutine(LoadScene("quit"));
-        gO.SetActive(true);
     }
 }

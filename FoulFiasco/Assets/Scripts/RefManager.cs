@@ -15,6 +15,7 @@ public class RefManager : MonoBehaviour
         playerInfo = FindAnyObjectByType<PlayerInfo>();
         //score gets set to 0
         playerInfo.score = 0;
+        playerInfo.speed = 0.1f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,12 +23,11 @@ public class RefManager : MonoBehaviour
         //if the collission tag is wall or ball
         if (collision.tag == "Wall" || collision.tag == "Ball")
         {
-            
             transform.position = new Vector3(-8, transform.position.y, transform.position.z);
             //an explosion effect gets intantiated
             explosionGameObject = Instantiate(explosion);
             //explosion position gets set to the collission position
-            explosionGameObject.transform.position = collision.transform.position;
+            explosionGameObject.transform.position = new Vector3(transform.position.x + 1, transform.position.y, 0);
             //collission object gets destroyed
             Destroy(collision.gameObject);
             //particles gets emitted from the explosion

@@ -14,6 +14,8 @@ TagManager:
   - Goal
   - Tutorial
   - PlayerInfo
+  - Jump
+  - Ground
   layers:
   - Default
   - TransparentFX

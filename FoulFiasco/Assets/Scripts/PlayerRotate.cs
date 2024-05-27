@@ -14,10 +14,6 @@ public class PlayerRotate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Fetches the PlayerInfo script from the PlayerInfo object
-        playerInfo = GameObject.Find("PlayerInfo").GetComponent<PlayerInfo>();
-        // Fetches the PlayerMovement script
-        playerMovement = GetComponent<PlayerMovement>();    
         // Sets the value of the original rotation
         originalRotation = transform.rotation;
     }
@@ -25,6 +21,11 @@ public class PlayerRotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Fetches the PlayerMovement script
+        playerMovement = GetComponent<PlayerMovement>();
+        // Fetches the PlayerInfo script from the PlayerInfo object
+        playerInfo = GameObject.FindGameObjectWithTag("PlayerInfo").GetComponent<PlayerInfo>();
+
         PlayerSpriteRotate();
     }
 
