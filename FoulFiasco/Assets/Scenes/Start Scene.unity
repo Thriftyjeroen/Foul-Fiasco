@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: c422778084a041341b3329bf6fe1d4ee, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -581,6 +581,10 @@ PrefabInstance:
     - target: {fileID: 3529442070838542096, guid: 1a83bccd3fe7f5d418c2962a557e23a4, type: 3}
       propertyPath: m_Name
       value: Curtains
+      objectReference: {fileID: 0}
+    - target: {fileID: 3529442070838542096, guid: 1a83bccd3fe7f5d418c2962a557e23a4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7657030688563662590, guid: 1a83bccd3fe7f5d418c2962a557e23a4, type: 3}
       propertyPath: m_Pivot.x
