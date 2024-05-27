@@ -16,6 +16,7 @@ public class RefManager : MonoBehaviour
         //score gets set to 0
         playerInfo.score = 0;
         playerInfo.speed = 0.1f;
+        playerInfo.startTime = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
