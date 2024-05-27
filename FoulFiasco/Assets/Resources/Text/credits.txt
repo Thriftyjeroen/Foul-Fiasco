@@ -23,10 +23,13 @@ Daniel Kosters
 Alkan Cakir
 Jeroen Verboom
 
-Music:
+Composing music:
 Jeroen Verboom
 
-SFX:
+Recording SFX:
+Jeroen Verboom
+
+Sound design:
 Jeroen Verboom
 
 Background cheering:
@@ -43,6 +46,14 @@ Testers:
 Thom Hermelink
 Jorick Wassink
 Ricardo Finke
+Sam Schutten
+Leon Bijker
+Dilara Koktas
+Twan Gilhuijs
+Jens Schagen
+Lady Jones
+Lotte Koster
+
 
 Special thanks:
 Eric Cantona
