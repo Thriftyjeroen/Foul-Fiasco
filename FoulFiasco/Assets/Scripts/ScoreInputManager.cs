@@ -9,8 +9,9 @@ using UnityEngine.UI;
 public class ScoreInputManager : MonoBehaviour
 {
     [SerializeField] TMP_Text score;
-    [SerializeField] TMP_InputField name;
+    [SerializeField] TMP_InputField inputName;
     [SerializeField] Button button;
+    [SerializeField] AudioSource clicker;
     PlayerInfo playerInfo;
     public ScoreUploader scoreUploader;
 
@@ -34,13 +35,21 @@ public class ScoreInputManager : MonoBehaviour
 
     public void Upload()
     {
-        button.enabled = false;
-        if (name.text.Length > 0)
+        if (Application.internetReachability != NetworkReachability.NotReachable)
         {
-            scoreUploader.Upload(name.text, playerInfo.score);
-            score.text = $"Uploading score....";
+            button.enabled = false;
+            if (inputName.text.Length > 0)
+            {
+                scoreUploader.Upload(inputName.text, playerInfo.score);
+                score.text = $"Uploading score....";
+            }
+        }
+        else
+        {
+            score.text = $"No network connection, cannot upload score";
         }
         StartCoroutine(Wait());
+
 
 
         IEnumerator Wait()

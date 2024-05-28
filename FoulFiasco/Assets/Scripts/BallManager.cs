@@ -7,6 +7,8 @@ public class BallManager : MonoBehaviour
     PlayerInfo playerInfo;
     float shootPower = 0;
     bool playerShoot = false;
+    [SerializeField] AudioSource goalSFX;
+    [SerializeField] AudioSource goalFailSFX;
 
     private void Start()
     {
@@ -59,8 +61,17 @@ public class BallManager : MonoBehaviour
         //if the collision tag is Goal
         if (collision.tag == "Goal")
         {
+            // Plays the goal sound effect
+            goalSFX.Play();
             //100 gets added to the current score of the player
             playerInfo.score += 100;
+        }
+
+        //if the collision tag is GoalMiss
+        if (collision.tag == "GoalMiss")
+        {
+            // Plays the goal sound effect
+            goalFailSFX.Play();
         }
     }
 

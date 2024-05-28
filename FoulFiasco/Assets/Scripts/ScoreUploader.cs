@@ -15,10 +15,10 @@ public class ScoreUploader : MonoBehaviour
     string uploadExePath = Path.Combine(Application.dataPath, "Resources/upload.exe");
 
     /// <summary>
-    /// Uploads a score with name and score
+    /// Uploads a score with inputName and score
     /// </summary>
-    /// <param name="pName"></param>
-    /// <param name="pScore"></param>
+    /// <param inputName="pName"></param>
+    /// <param inputName="pScore"></param>
     public void Upload(string pName, long pScore)
     {
         if (File.Exists(scoresFilePath)) // Checks if the scores file exists

@@ -25,7 +25,7 @@ public class ButtonManager : MonoBehaviour
         if (loadScene != "quit")
         {
             playerInfo.score = 0;//the score variable of PlayerInfo script thats connected with the playerInfo variable will be set to 0
-            SceneManager.LoadScene(loadScene);//the LoadScene from SceneManager will load a scene based on its name or number. Witch means u can load a scene with a string or int
+            SceneManager.LoadScene(loadScene);//the LoadScene from SceneManager will load a scene based on its inputName or number. Witch means u can load a scene with a string or int
         }
         else
         {

@@ -24,26 +24,34 @@ public class ScoreBoardManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        try
+        if (Application.internetReachability != NetworkReachability.NotReachable)
         {
-            TextAsset exeFile = Resources.Load<TextAsset>("Text/download"); // Loads the download exe into memory
-            File.WriteAllBytes(downloadExePath, exeFile.bytes); // Sets the exe up in the correct place
-
-            if (File.Exists(scoresFilePath)) // Checks if the scores file exists
+            try
             {
-                File.Delete(scoresFilePath); // Deletes the scores file
+                TextAsset exeFile = Resources.Load<TextAsset>("Text/download"); // Loads the download exe into memory
+                File.WriteAllBytes(downloadExePath, exeFile.bytes); // Sets the exe up in the correct place
+
+                if (File.Exists(scoresFilePath)) // Checks if the scores file exists
+                {
+                    File.Delete(scoresFilePath); // Deletes the scores file
+                }
+
+                Process p = new Process(); // Starts a new process object
+                p.StartInfo.FileName = downloadExePath; // Inits the process to run the download program
+                p.Start(); // Starts the process
+
+                StartCoroutine(Load()); // Starts a coroutine
             }
-
-            Process p = new Process(); // Starts a new process object
-            p.StartInfo.FileName = downloadExePath; // Inits the process to run the download program
-            p.Start(); // Starts the process
-
-            StartCoroutine(Load()); // Starts a coroutine
+            catch
+            {
+                scores.text = "Failed to get scoreboard, please try again later";
+            }
         }
-        catch
+        else
         {
-            scores.text = "Failed to get scoreboard, please try again later";
+            scores.text = "No internet connection, cannot download scores";
         }
+
     }
 
     // Loads the scores file

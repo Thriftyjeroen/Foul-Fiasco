@@ -51,32 +51,7 @@ public class PlayerInfo : MonoBehaviour
             scoreText.text = score.ToString();
         }
 
-        //switch for the movement speed
-        switch (score)
-        {
-            case 100:
-                speed = 0.12f;
-                break;
-
-            case 250:
-                speed = 0.14f;
-                break;
-
-            case 500:
-                speed = 0.16f;
-                break;
-
-            case 1000:
-                speed = 0.18f;
-                break;
-
-            case 1500:
-                speed = 0.2f;
-                break;
-
-            case 2500:
-                speed = 0.22f;
-                break;
-        }
+        // Increse the speed a little bit
+        if (speed < 0.3f) speed += 0.000005f;
     }
 }
