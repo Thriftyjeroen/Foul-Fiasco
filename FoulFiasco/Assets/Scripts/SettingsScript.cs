@@ -6,7 +6,7 @@ public class SettingsScript : MonoBehaviour
 {
     bool timeOn = true;
     [SerializeField] TMP_Text currentSetting;
-    // Start is called before the first frame update
+    [SerializeField] AudioSource clicker;
 
     // Update is called once per frame
     void Update()
@@ -26,7 +26,8 @@ public class SettingsScript : MonoBehaviour
     //method to change the bool value when button is pressed
     public void ChangeTime()
     {
-        //timescale 0 when Time on is true, also TimeOn will change to false
+        clicker.Play();
+        //timescale 0.1 when Time on is true, also TimeOn will change to false
         if (timeOn == true)
         {
             Time.timeScale = 0.1f;
@@ -43,6 +44,7 @@ public class SettingsScript : MonoBehaviour
     //method to load main menu
     public void BackToMainMenu()
     {
+        clicker.Play();
         SceneManager.LoadScene("MainMenu");
     }
 }
