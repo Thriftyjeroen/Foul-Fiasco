@@ -6,8 +6,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float jump = 12;
 
-    [SerializeField] AudioSource jumpSFX;
-
     PlayerInfo playerInfo;
 
     CircleCollider2D circleCollider;
@@ -34,7 +32,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (((Input.GetKeyDown(KeyCode.W)) || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded) // als je spatie klikt en isgrounded true is of je op w klikt en isgrounded true is doe de code
         {
-            jumpSFX.Play();
             rb.AddForce(Vector2.up * jump, ForceMode2D.Impulse); // zorgt ervoor dat je force toevoegd aan de y axis zodat je speler omhoog kan gaan dus kan gaan jumpen
             isGrounded = false;
         }
