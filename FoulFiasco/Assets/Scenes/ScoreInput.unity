@@ -1181,6 +1181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: {fileID: 698897405}
   name: {fileID: 316146781}
+  button: {fileID: 1876563222}
   scoreUploader: {fileID: 1771555944}
 --- !u!114 &1771555944
 MonoBehaviour:
