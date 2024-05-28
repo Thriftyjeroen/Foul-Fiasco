@@ -10,7 +10,7 @@ public class PlayerInfo : MonoBehaviour
 
     float time;
 
-    TMP_Text scoreText;
+    [SerializeField] TMP_Text scoreText;
 
     private void Start()
     {
@@ -45,7 +45,7 @@ public class PlayerInfo : MonoBehaviour
         }
 
         //if there is a gameobject with the tag "score"
-        if (GameObject.FindGameObjectWithTag("Score") != null)
+        if (scoreText != null)
         {
             //scoreText is set to score variale to string
             scoreText.text = score.ToString();

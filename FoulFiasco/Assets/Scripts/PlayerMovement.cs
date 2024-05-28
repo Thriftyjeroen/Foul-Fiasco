@@ -6,6 +6,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float jump = 12;
 
+    [SerializeField] AudioSource jumpSFX;
+    [SerializeField] AudioSource slideSFX;
+
     PlayerInfo playerInfo;
 
     CircleCollider2D circleCollider;
@@ -30,8 +33,9 @@ public class PlayerMovement : MonoBehaviour
 
     void MovementManager()
     {
-        if (((Input.GetKeyDown(KeyCode.W)) || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded) // als je spatie klikt en isgrounded true is of je op w klikt en isgrounded true is doe de code
+        if (((Input.GetKeyDown(KeyCode.W)) || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded && !(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))) // als je spatie klikt en isgrounded true is of je op w klikt en isgrounded true is doe de code
         {
+            jumpSFX.Play(); // Plays the jump sound effect
             rb.AddForce(Vector2.up * jump, ForceMode2D.Impulse); // zorgt ervoor dat je force toevoegd aan de y axis zodat je speler omhoog kan gaan dus kan gaan jumpen
             isGrounded = false;
         }
@@ -41,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
+            if (!slideSFX.isPlaying) slideSFX.Play();
             transform.position = new Vector3(transform.position.x, transform.position.y - 0.0065f, transform.position.z);
             circleCollider.enabled = false;
             boxCollider.enabled = true;
@@ -49,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            slideSFX.Stop();
             circleCollider.enabled = true;
             boxCollider.enabled = false;
             transform.localScale = new Vector3(1, 1, 1);
