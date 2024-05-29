@@ -6,6 +6,8 @@ using UnityEngine;
 using System.IO;
 using static UnityEngine.EventSystems.EventTrigger;
 using UnityEngine.SceneManagement;
+using System;
+using System.ComponentModel;
 
 public class ScoreBoardManager : MonoBehaviour
 {
@@ -45,9 +47,13 @@ public class ScoreBoardManager : MonoBehaviour
 
                 StartCoroutine(Load()); // Starts a coroutine
             }
-            catch
+            catch (Win32Exception)
             {
                 scores.text = "Failed to get scoreboard, please try again later";
+            }
+            catch
+            {
+
             }
         }
         else
