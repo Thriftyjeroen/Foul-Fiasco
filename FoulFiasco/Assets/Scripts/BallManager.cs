@@ -9,6 +9,7 @@ public class BallManager : MonoBehaviour
     bool playerShoot = false;
     [SerializeField] AudioSource goalSFX;
     [SerializeField] AudioSource goalFailSFX;
+    [SerializeField] AudioSource kickSFX;
 
     private void Start()
     {
@@ -16,8 +17,24 @@ public class BallManager : MonoBehaviour
         playerInfo = FindAnyObjectByType<PlayerInfo>();
     }
 
-    //each frame 
     private void Update()
+    {
+        if (playerShoot)
+        {
+            //if the space key gets released
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                kickSFX.Play();
+                //the velocity will be set to x = 15 and y = shooting power (the map is moving, so 15 is to equalise the ball speed with map speed)
+                rb.velocity = new Vector2(15, shootPower);
+                //shootpower gets reset to 0
+                shootPower = 0;
+            }
+        }
+    }
+
+    //each frame 
+    private void FixedUpdate()
     {
         //when the bool playershoot true is
         if (playerShoot)
@@ -25,8 +42,8 @@ public class BallManager : MonoBehaviour
             //when the user presses the space button
             if (Input.GetKey(KeyCode.Space))
             {
-                //+0.15 gets added to shootpower
-                shootPower += 0.1f;
+                //+0.50 gets added to shootpower
+                shootPower += 0.50f;
 
                 //if shootpower is over or equal to 30
                 if (shootPower >= 30)
@@ -34,14 +51,6 @@ public class BallManager : MonoBehaviour
                     //shootpower gets set back to 30
                     shootPower = 30;
                 }
-            }
-            //if the space key gets released
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                //the velocity will be set to x = 15 and y = shooting power (the map is moving, so 15 is to equalise the ball speed with map speed)
-                rb.velocity = new Vector2(15, shootPower);
-                //shootpower gets reset to 0
-                shootPower = 0;
             }
         }
         //shows the charge in the shootbar, the amount filled is shootpower : 30

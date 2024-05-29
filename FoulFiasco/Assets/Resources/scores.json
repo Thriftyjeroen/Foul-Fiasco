@@ -1,6 +1,10 @@
 {
     "scores": [
         {
+            "name": "EGG",
+            "score": 2021
+        },
+        {
             "name": "hmmm",
             "score": 1938
         },
@@ -11,6 +15,10 @@
         {
             "name": "Test",
             "score": 926
+        },
+        {
+            "name": "aaaaaaaaaaaaah",
+            "score": 763
         },
         {
             "name": "bush did 9/11",
@@ -31,14 +39,6 @@
         {
             "name": "arson is fun",
             "score": 371
-        },
-        {
-            "name": "gloob",
-            "score": 370
-        },
-        {
-            "name": "Duck",
-            "score": 308
         }
     ]
 }
