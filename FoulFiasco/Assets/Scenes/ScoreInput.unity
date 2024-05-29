@@ -1717,7 +1717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 698897405}
-  name: {fileID: 316146781}
+  inputName: {fileID: 316146781}
   button: {fileID: 1876563222}
   clicker: {fileID: 1183976565}
   scoreUploader: {fileID: 1771555944}
