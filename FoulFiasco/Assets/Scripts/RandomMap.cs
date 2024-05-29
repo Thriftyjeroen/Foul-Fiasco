@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class RandomMap : MonoBehaviour
 {
+    // Draggable variable array
     [SerializeField] GameObject[] mapArray;
     [SerializeField] GameObject[] ballMapArray;
 
     int ballMapCount = 0;
 
+    // Runs every frame
     private void Update()
     {
         //if the gameobject with the tag "map" length is lower than 3

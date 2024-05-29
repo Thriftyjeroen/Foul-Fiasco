@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class MapMovement : MonoBehaviour
 {
+    // Script variable
     PlayerInfo playerInfo;
-    [SerializeField] bool tutorial;
 
     private void Start()
     {
@@ -13,21 +13,17 @@ public class MapMovement : MonoBehaviour
 
     private void Update()
     {
-        //when tutorial is false 
-        if (!tutorial)
+        //if the x position is lower or equal to 60
+        if (transform.position.x <= -60)
         {
-            //if the x position is lower or equal to 60
-            if (transform.position.x <= -60)
-            {
-                //current game object gets destroyed
-                Destroy(gameObject);
-            }
+            //current game object gets destroyed
+            Destroy(gameObject);
         }
     }
 
     private void FixedUpdate()
     {
-        //nieuwe positie is vector3 met de (x positie - player speed), de z en y blijven het zelfde 
+        //new position is vector3 with the (x position - player speed), the z and y stay the same 
         transform.position = new Vector3(transform.position.x - playerInfo.speed, transform.position.y, transform.position.z);
     }
 }

@@ -3,27 +3,36 @@ using UnityEngine.UI;
 
 public class BallManager : MonoBehaviour
 {
+    // Rigidbody variable
     Rigidbody2D rb;
+    // Script variable
     PlayerInfo playerInfo;
     float shootPower = 0;
     bool playerShoot = false;
+    // Audiosource draggable
     [SerializeField] AudioSource goalSFX;
     [SerializeField] AudioSource goalFailSFX;
     [SerializeField] AudioSource kickSFX;
 
+    // Runs on start
     private void Start()
     {
+        // Finds the rigidbody on this GameObject
         rb = GetComponent<Rigidbody2D>();
+        // Finds the PlayerInfo script on a GameObject with PlayerInfo script
         playerInfo = FindAnyObjectByType<PlayerInfo>();
     }
 
+    // Runs every frame
     private void Update()
     {
+        // If bool is true, do this
         if (playerShoot)
         {
             //if the space key gets released
             if (Input.GetKeyUp(KeyCode.Space))
             {
+                // Plays the kicking sound effect
                 kickSFX.Play();
                 //the velocity will be set to x = 15 and y = shooting power (the map is moving, so 15 is to equalise the ball speed with map speed)
                 rb.velocity = new Vector2(15, shootPower);
@@ -33,7 +42,7 @@ public class BallManager : MonoBehaviour
         }
     }
 
-    //each frame 
+    // runs on a fixed frame
     private void FixedUpdate()
     {
         //when the bool playershoot true is
@@ -79,7 +88,7 @@ public class BallManager : MonoBehaviour
         //if the collision tag is GoalMiss
         if (collision.tag == "GoalMiss")
         {
-            // Plays the goal sound effect
+            // Plays the goal fail sound effect
             goalFailSFX.Play();
         }
     }

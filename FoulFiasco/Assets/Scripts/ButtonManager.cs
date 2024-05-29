@@ -4,14 +4,19 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
+    // Script variable
     PlayerInfo playerInfo;
+    // Draggable variable
     [SerializeField] GameObject gO;
     [SerializeField] AudioSource clicker;
+    // Runs on start
     public void Start()
-    { playerInfo = FindAnyObjectByType<PlayerInfo>(); }//the first script found in the project will with this code be connected with the variable playerInfo
-    public void ChangeScene(string scene)//this method will change the scene. It wil in our situation always be called by a butten, bud it ask for a string as a parameter witch will be given in the inspector (THX, alkan for relising this is possible)
+    { 
+        playerInfo = FindAnyObjectByType<PlayerInfo>(); //the first script found in the project will with this code be connected with the variable playerInfo
+    }
+    public void ChangeScene(string scene)//this method will change the scene. It wil in our situation always be called by a button, but it ask for a string as a parameter witch will be given in the inspector (THX, alkan for relising this is possible)
     {
-        clicker.Play();
+        clicker.Play(); // Plays the click sound effect
         if (!(scene == "Game" && !(PlayerPrefs.GetInt("Coins") > 0)))//as long the scene is not Game and the coins are not higher than 0 the code will not run, every other situation it will run
         {
             if (scene == "Game") PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - 1);

@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerInfo : MonoBehaviour
 {
+    // Sets int
     public int score = 0;
     public float speed = 0.1f;
 
@@ -10,6 +11,7 @@ public class PlayerInfo : MonoBehaviour
 
     float time;
 
+    // Draggable varible
     [SerializeField] TMP_Text scoreText;
 
     private void Start()

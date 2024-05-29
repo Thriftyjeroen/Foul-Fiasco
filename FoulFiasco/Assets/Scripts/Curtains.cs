@@ -2,8 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Curtains : MonoBehaviour
-{// Daniël: i needed this video to relise abaut Time.deltaTime: https://www.youtube.com/watch?v=POq1i8FyRyQ
-    //[SerializeField] GameObject gO;
+{// Daniël: i needed this video to relise abaut Time.deltaTime: https://www.youtube.com/watch?v=dQw4w9WgXcQ
     [SerializeField] Image curtian1, curtain2;//the image that are connected in the inspector will be stored in the 2 varables decleared in this line
     [SerializeField] float time = 0;//this varable will show in the inspector (for testing purpose) how long the code is running within the decleared time. later it is also used to calculate how much of the image the user can't see
     int iTime = 2;//this is the time it should take in secconds to show or remove the image
@@ -46,3 +45,6 @@ public class Curtains : MonoBehaviour
         gameObject.SetActive(false);
     }
 }
+
+
+// Nvm wrong vid https://www.youtube.com/watch?v=POq1i8FyRyQ

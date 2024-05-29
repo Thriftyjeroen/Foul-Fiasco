@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class SettingsScript : MonoBehaviour
 {
     bool timeOn = true;
+    // Draggable variable
     [SerializeField] TMP_Text currentSetting;
     [SerializeField] AudioSource clicker;
 

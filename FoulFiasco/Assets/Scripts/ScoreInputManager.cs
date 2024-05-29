@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class ScoreInputManager : MonoBehaviour
 {
+    // Draggable variable
     [SerializeField] TMP_Text score;
     [SerializeField] TMP_InputField inputName;
     [SerializeField] Button button;

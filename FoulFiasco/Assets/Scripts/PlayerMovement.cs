@@ -3,12 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // Draggable variable
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float jump = 12;
 
     [SerializeField] AudioSource jumpSFX;
     [SerializeField] AudioSource slideSFX;
 
+    // Script variable
     PlayerInfo playerInfo;
 
     CircleCollider2D circleCollider;
@@ -19,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        // playerInfo variable gets linked to PlayerInfo script
         playerInfo = FindAnyObjectByType<PlayerInfo>();
         circleCollider = GetComponent<CircleCollider2D>();
         boxCollider = GetComponent<BoxCollider2D>();
@@ -27,16 +30,17 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Cals method
         MovementManager();
         SlideManager();
     }
 
     void MovementManager()
     {
-        if (((Input.GetKeyDown(KeyCode.W)) || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded && !(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))) // als je spatie klikt en isgrounded true is of je op w klikt en isgrounded true is doe de code
+        if (((Input.GetKeyDown(KeyCode.W)) || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded && !(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))) // If you space click and isgrounded true is or you on w click and isgrounded true is do the code
         {
             jumpSFX.Play(); // Plays the jump sound effect
-            rb.AddForce(Vector2.up * jump, ForceMode2D.Impulse); // zorgt ervoor dat je force toevoegd aan de y axis zodat je speler omhoog kan gaan dus kan gaan jumpen
+            rb.AddForce(Vector2.up * jump, ForceMode2D.Impulse); // concern that you force add to the y axis so that you player upward can go so can go jump
             isGrounded = false;
         }
     }
