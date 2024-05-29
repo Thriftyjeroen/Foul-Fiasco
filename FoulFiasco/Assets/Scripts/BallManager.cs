@@ -16,8 +16,8 @@ public class BallManager : MonoBehaviour
         playerInfo = FindAnyObjectByType<PlayerInfo>();
     }
 
-    //each frame 
-    private void Update()
+
+    private void FixedUpdate()
     {
         //when the bool playershoot true is
         if (playerShoot)
@@ -26,7 +26,7 @@ public class BallManager : MonoBehaviour
             if (Input.GetKey(KeyCode.Space))
             {
                 //+0.15 gets added to shootpower
-                shootPower += 0.1f;
+                shootPower += 0.75f;
 
                 //if shootpower is over or equal to 30
                 if (shootPower >= 30)
@@ -38,6 +38,7 @@ public class BallManager : MonoBehaviour
             //if the space key gets released
             if (Input.GetKeyUp(KeyCode.Space))
             {
+                print(shootPower);
                 //the velocity will be set to x = 15 and y = shooting power (the map is moving, so 15 is to equalise the ball speed with map speed)
                 rb.velocity = new Vector2(15, shootPower);
                 //shootpower gets reset to 0
@@ -47,6 +48,7 @@ public class BallManager : MonoBehaviour
         //shows the charge in the shootbar, the amount filled is shootpower : 30
         GameObject.FindGameObjectWithTag("ShootBar").GetComponent<Image>().fillAmount = shootPower / 30;
     }
+    //each frame
 
     //when trigger
     private void OnTriggerEnter2D(Collider2D collision)
