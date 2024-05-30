@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class ScoreInputManager : MonoBehaviour
 {
+    // Draggable variable
     [SerializeField] TMP_Text score;
     [SerializeField] TMP_InputField inputName;
     [SerializeField] Button button;
@@ -40,8 +41,15 @@ public class ScoreInputManager : MonoBehaviour
             button.enabled = false;
             if (inputName.text.Length > 0)
             {
-                scoreUploader.Upload(inputName.text, playerInfo.score);
-                score.text = $"Uploading score....";
+                try
+                {
+                    score.text = $"Uploading score....";
+                    scoreUploader.Upload(inputName.text, playerInfo.score);
+                }
+                catch
+                {
+                    score.text = "Antivirus blocked uploading :(";
+                }
             }
         }
         else

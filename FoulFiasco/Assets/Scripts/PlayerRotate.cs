@@ -26,6 +26,7 @@ public class PlayerRotate : MonoBehaviour
         // Fetches the PlayerInfo script from the PlayerInfo object
         playerInfo = GameObject.FindGameObjectWithTag("PlayerInfo").GetComponent<PlayerInfo>();
 
+        // Calls method
         PlayerSpriteRotate();
     }
 

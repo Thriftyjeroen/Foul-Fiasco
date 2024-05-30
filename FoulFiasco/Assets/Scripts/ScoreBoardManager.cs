@@ -6,6 +6,8 @@ using UnityEngine;
 using System.IO;
 using static UnityEngine.EventSystems.EventTrigger;
 using UnityEngine.SceneManagement;
+using System;
+using System.ComponentModel;
 
 public class ScoreBoardManager : MonoBehaviour
 {
@@ -13,9 +15,11 @@ public class ScoreBoardManager : MonoBehaviour
     ScoresWrapper wrapper;
     string file;
 
+    // Gets the file path
     string scoresFilePath = Path.Combine(Application.dataPath, "Resources/scores.json");
     string downloadExePath = Path.Combine(Application.dataPath, "Resources/download.exe");
 
+    // Runs asap
     private void Awake()
     {
         scores.text = "Loading scores...";
@@ -24,6 +28,7 @@ public class ScoreBoardManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // If network is available
         if (Application.internetReachability != NetworkReachability.NotReachable)
         {
             try
@@ -42,9 +47,13 @@ public class ScoreBoardManager : MonoBehaviour
 
                 StartCoroutine(Load()); // Starts a coroutine
             }
-            catch
+            catch (Win32Exception)
             {
                 scores.text = "Failed to get scoreboard, please try again later";
+            }
+            catch
+            {
+
             }
         }
         else
@@ -86,7 +95,7 @@ public class ScoreBoardManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.anyKey)
+        if (Input.GetKey(KeyCode.Escape) || Input.GetKey(KeyCode.Space))
         {
             SceneManager.LoadScene("MainMenu");
         }

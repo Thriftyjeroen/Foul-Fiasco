@@ -56,7 +56,7 @@ public class ScoreUploader : MonoBehaviour
                     {
                         if (pScore >= scoresList[j].score) // If score uploading is higher than the old score here, do this
                         {
-                            ScoreEntry newEntry = new ScoreEntry(); // Makes a new 
+                            ScoreEntry newEntry = new ScoreEntry(); // Makes a new score entry
                             newEntry.score = pScore;
                             newEntry.name = pName;
                             scoresList.Insert(j, newEntry);

@@ -4,9 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class RefManager : MonoBehaviour
 {
+    // Draggable variable
     [SerializeField] GameObject explosion;
     GameObject explosionGameObject;
 
+    // Script variable
     PlayerInfo playerInfo;
 
     private void Start()
