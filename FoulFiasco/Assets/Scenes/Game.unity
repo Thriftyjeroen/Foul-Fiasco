@@ -181,7 +181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b1cd7e3f035664b818b98ebe0980d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorial: 0
 --- !u!1 &206794823
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,8 +1234,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1094518541, guid: d25ef75235838dd439108cdd1de40665, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 2004446990, guid: 5039c1cfb3f0e8d499a66136e0e339ff, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1244,7 +1243,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 56
 --- !u!222 &475821802
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3088,7 +3087,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1671530368, guid: d25ef75235838dd439108cdd1de40665, type: 3}
+  m_Sprite: {fileID: 1878284407, guid: 5039c1cfb3f0e8d499a66136e0e339ff, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3302,7 +3301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b1cd7e3f035664b818b98ebe0980d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorial: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
